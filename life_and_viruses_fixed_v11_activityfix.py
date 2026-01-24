@@ -26,7 +26,7 @@ COLOR_GREEN = (60, 220, 60)
 DENSITY_PERCENT = 40  # 5..99
 
 # --- АКТИВНОСТЬ -> ВЗРЫВ ---
-ACTIVITY_TRIGGER_PERCENT = 0.2
+ACTIVITY_TRIGGER_PERCENT = 1
 ACTIVITY_PATIENCE = 1
 MIN_GENS_BETWEEN_BANGS = 30
 
@@ -95,10 +95,10 @@ VIRUS_GROUP_SPAWN_WINDOW_START = 500
 VIRUS_GROUP_SPAWN_WINDOW_END = 700
 
 # Группы: 2–3 группы, в каждой 10–30 клеток (рандом)
-VIRUS_GROUPS_MIN = 4
+VIRUS_GROUPS_MIN = 5
 VIRUS_GROUPS_MAX = 10
-VIRUS_GROUP_SIZE_MIN = 20
-VIRUS_GROUP_SIZE_MAX = 50
+VIRUS_GROUP_SIZE_MIN = 500
+VIRUS_GROUP_SIZE_MAX = 1500
 
 # Срок жизни вирусов: глобально для всех зелёных (от первого появления)
 VIRUS_GLOBAL_LIFETIME_GENS = 1500
@@ -127,10 +127,10 @@ VIRUS_GROUP_SPAWN_WINDOW_START = 500
 VIRUS_GROUP_SPAWN_WINDOW_END = 700
 
 # Группы: 2–3 группы, в каждой 10–30 клеток (рандом)
-VIRUS_GROUPS_MIN = 2
-VIRUS_GROUPS_MAX = 3
-VIRUS_GROUP_SIZE_MIN = 10
-VIRUS_GROUP_SIZE_MAX = 30
+VIRUS_GROUPS_MIN = 4
+VIRUS_GROUPS_MAX = 10
+VIRUS_GROUP_SIZE_MIN = 500
+VIRUS_GROUP_SIZE_MAX = 1500
 
 # Срок жизни вирусов: глобально для всех зелёных (от первого появления)
 VIRUS_GLOBAL_LIFETIME_GENS = 800
@@ -557,6 +557,8 @@ class TwoCampGameOfLife:
         self.explosions = 0
         self.manual_explosions = 0
         self.raider_explosions = 0
+        self.last_explosion_gen = 0  # any explosion (big/raider/manual)
+
 
         self.activity_trigger = float(ACTIVITY_TRIGGER_PERCENT)
         self.activity_patience = int(ACTIVITY_PATIENCE)
@@ -616,6 +618,10 @@ class TwoCampGameOfLife:
         self.virus_groups_spawned_or_canceled = False
         self.virus_last_change_gen = np.full((self.rows, self.cols), -10**9, dtype=np.int32)
 
+        # Spontaneous respawn after cooldown: require 100 gens without any explosion after VirusIn hits 0
+        self.virus_quiet_start_gen = None
+        self.virus_quiet_deadline_gen = None
+        self.virus_quiet_blocked = False
         # Virus counters
         self.virus_spawns = 0
         self.virus_infections = 0
@@ -817,7 +823,10 @@ class TwoCampGameOfLife:
     # end compute_oscillating_mask
     
     def compute_activity(self, old_grid, new_grid):
-        total_cells = old_grid.size
+        # Активность = доля "активных" (изменившихся) клеток среди ВСЕХ ЖИВЫХ клеток,
+        # а не среди всех ячеек поля.
+        #
+        # "Живые" = любые состояния != 0 (включая вирусы).
         changed = (new_grid != old_grid)
 
         osc_mask = self.compute_oscillating_mask(old_grid, new_grid)
@@ -829,12 +838,16 @@ class TwoCampGameOfLife:
         active_red_count = int(np.sum(changed_no_osc & ((old_grid == 2) | (new_grid == 2))))
         active_virus_count = int(np.sum(changed_no_osc & ((old_grid == 3) | (new_grid == 3))))
 
-        act_total = 100.0 * active_total_count / float(total_cells)
-        act_white = 100.0 * active_white_count / float(total_cells)
-        act_red = 100.0 * active_red_count / float(total_cells)
-        act_virus = 100.0 * active_virus_count / float(total_cells)
+        alive_mask = (old_grid != 0) | (new_grid != 0)
+        alive_total = int(np.sum(alive_mask))
+        denom = float(alive_total) if alive_total > 0 else 1.0
 
-        osc_percent = 100.0 * int(np.sum(osc_mask)) / float(total_cells)
+        act_total = 100.0 * active_total_count / denom
+        act_white = 100.0 * active_white_count / denom
+        act_red = 100.0 * active_red_count / denom
+        act_virus = 100.0 * active_virus_count / denom
+
+        osc_percent = 100.0 * int(np.sum(osc_mask)) / denom
 
         return (act_total, act_white, act_red, act_virus, osc_percent,
                 active_total_count, active_white_count, active_red_count, active_virus_count)
@@ -1025,6 +1038,7 @@ class TwoCampGameOfLife:
         self.explosions += 1
         self.log_event("BIG_BANG", extra=str(info))
         self.gen_since_bang = 0
+        self.last_explosion_gen = int(self.generation)
         self.low_activity_streak = 0
         self.history.clear()
 
@@ -1037,6 +1051,7 @@ class TwoCampGameOfLife:
         cap, k = self._apply_ball(gy, gx, r, fill_density=0.45)
         self.manual_explosions += 1
         self.log_event("MANUAL_BANG", extra=f"center=({gx},{gy}) r={r} cap={cap} k={k}")
+        self.last_explosion_gen = int(self.generation)
         self.history.clear()
 
     # ----------------------------
@@ -1225,6 +1240,7 @@ class TwoCampGameOfLife:
 
                 processed_groups += 1
                 self.raider_explosions += 1
+                self.last_explosion_gen = int(self.generation)
                 self.log_event(
                     "RAIDER_STRIKE",
                     extra=f"color={color_state} center=({cx0},{cy0}) enemyWin40={enemy_cnt} comp={len(comp)}"
@@ -1262,8 +1278,9 @@ class TwoCampGameOfLife:
         self.virus_groups_spawned_or_canceled = False
     # end _plan_virus_groups_spawn
 
-    def _spawn_virus_groups(self):
+    def _spawn_virus_groups(self, grid_target=None):
         """Spawn 2–3 virus groups (10–30 cells each) at random positions."""
+        grid = self.grid if grid_target is None else grid_target
         groups = int(np.random.randint(VIRUS_GROUPS_MIN, VIRUS_GROUPS_MAX + 1))
         for _ in range(groups):
             size = int(np.random.randint(VIRUS_GROUP_SIZE_MIN, VIRUS_GROUP_SIZE_MAX + 1))
@@ -1273,7 +1290,7 @@ class TwoCampGameOfLife:
             x, y = cx, cy
             for _k in range(size):
                 if 0 <= x < self.cols and 0 <= y < self.rows:
-                    self.grid[y, x] = VIRUS_STATE
+                    grid[y, x] = VIRUS_STATE
                     self.virus_last_change_gen[y, x] = int(self.generation)
                 dx = int(np.random.randint(-1, 2))
                 dy = int(np.random.randint(-1, 2))
@@ -1319,6 +1336,10 @@ class TwoCampGameOfLife:
             if self.virus_epoch_start_gen is None:
                 self.virus_epoch_start_gen = int(self.generation)
             self.log_event("VIRUS_SPAWN", extra=f"type=bang placed={placed} gen={int(self.generation)}")
+            # cancel any pending spontaneous respawn window
+            self.virus_quiet_start_gen = None
+            self.virus_quiet_deadline_gen = None
+            self.virus_quiet_blocked = False
             return True
         return False
     # end _maybe_spawn_viruses_from_bang
@@ -1364,8 +1385,11 @@ class TwoCampGameOfLife:
         if (not self.virus_groups_spawned_or_canceled) and (self.virus_groups_spawn_gen is not None):
             if gen >= int(self.virus_groups_spawn_gen):
                 if self._can_spawn_viruses_now():
-                    self._spawn_virus_groups()
-                    new_grid[:] = self.grid
+                    self._spawn_virus_groups(grid_target=new_grid)
+                    # cancel any pending spontaneous respawn window
+                    self.virus_quiet_start_gen = None
+                    self.virus_quiet_deadline_gen = None
+                    self.virus_quiet_blocked = False
                 self.virus_groups_spawned_or_canceled = True
 
         # 2) Global TTL expiry
@@ -1383,6 +1407,10 @@ class TwoCampGameOfLife:
         # 3) Per-cell stagnation expiry
         virus_new = (new_grid == VIRUS_STATE)
         if np.any(virus_new):
+            # cancel pending spontaneous respawn window while viruses exist
+            self.virus_quiet_start_gen = None
+            self.virus_quiet_deadline_gen = None
+            self.virus_quiet_blocked = False
             virus_old = (old_grid == VIRUS_STATE)
             unchanged = virus_new & virus_old
             changed_or_new = virus_new & (~virus_old)
@@ -1401,7 +1429,34 @@ class TwoCampGameOfLife:
             if self.virus_epoch_start_gen is not None or np.any(old_grid == VIRUS_STATE):
                 self.virus_epoch_start_gen = None
                 self.last_virus_end_gen = gen
-    # end _postprocess_virus_lifecycle
+    
+        # 4) Spontaneous respawn AFTER cooldown if there were no explosions for 100 gens
+        #    Trigger condition: VirusIn == 0 (cooldown passed) and still no viruses on field.
+        if (not np.any(new_grid == VIRUS_STATE)) and self._can_spawn_viruses_now():
+            # Start / maintain a "quiet window" after cooldown ends
+            if self.virus_quiet_start_gen is None:
+                self.virus_quiet_start_gen = gen
+                self.virus_quiet_deadline_gen = gen + 100
+                self.virus_quiet_blocked = False
+
+            # If an explosion happens during the window -> block this attempt
+            if (self.last_explosion_gen is not None) and (self.last_explosion_gen >= int(self.virus_quiet_start_gen)) and (self.last_explosion_gen < int(self.virus_quiet_deadline_gen)):
+                self.virus_quiet_blocked = True
+
+            # Deadline reached -> if no explosions, spawn scattered virus groups (can overwrite other cells)
+            if gen >= int(self.virus_quiet_deadline_gen):
+                if not self.virus_quiet_blocked:
+                    self._spawn_virus_groups(grid_target=new_grid)
+                    # Reset window after successful spawn
+                    self.virus_quiet_start_gen = None
+                    self.virus_quiet_deadline_gen = None
+                    self.virus_quiet_blocked = False
+                else:
+                    # Restart window from now (rolling "100 gens of calm" requirement)
+                    self.virus_quiet_start_gen = gen
+                    self.virus_quiet_deadline_gen = gen + 100
+                    self.virus_quiet_blocked = False
+# end _postprocess_virus_lifecycle
     def _generate_connected_offsets(self, n=4):
         offsets = {(0, 0)}
         neighbors8 = [(dy, dx) for dy in (-1, 0, 1) for dx in (-1, 0, 1) if not (dy == 0 and dx == 0)]
@@ -1772,21 +1827,28 @@ class TwoCampGameOfLife:
         count_red = int(np.sum(self.grid == 2))
         count_virus = int(np.sum(self.grid == VIRUS_STATE)) if self.biohazard_enabled else 0
 
-        # Trace: generations until planned first-wave virus groups (countdown or status)
+        # Trace: VirusIn отображает:
+        # - обратный отсчёт до первой волны (пока она запланирована и не отменена);
+        # - '-' когда вирусы уже есть на поле;
+        # - обратный отсчёт до следующего разрешённого появления после полного исчезновения (кулдаун).
         virus_in_str = "-"
-        if self.biohazard_enabled and getattr(self, "virus_groups_spawn_gen", None) is not None:
-            if not getattr(self, "virus_groups_spawned_or_canceled", False):
-                virus_in_str = str(max(0, int(self.virus_groups_spawn_gen) - int(self.generation)))
+        if self.biohazard_enabled:
+            has_virus_now = bool(np.any(self.grid == VIRUS_STATE))
+            if has_virus_now:
+                virus_in_str = "-"
             else:
-                reason = getattr(self, "virus_groups_cancel_reason", None)
-                if reason == 'bang':
-                    virus_in_str = "X"  # canceled by bang
-                elif reason == 'groups':
-                    virus_in_str = "0"  # spawned
+                gen = int(self.generation)
+                # 1) Первая волна: пока не заспавнена/не отменена — показываем отсчёт
+                if getattr(self, "virus_groups_spawn_gen", None) is not None and (not getattr(self, "virus_groups_spawned_or_canceled", False)):
+                    virus_in_str = str(max(0, int(self.virus_groups_spawn_gen) - gen))
                 else:
-                    virus_in_str = "-"
-
-
+                    # 2) После полного исчезновения: показываем кулдаун до следующего появления
+                    last_end = getattr(self, "last_virus_end_gen", None)
+                    if last_end is not None:
+                        wait = int(VIRUS_RESPAWN_COOLDOWN_GENS) - (gen - int(last_end))
+                        virus_in_str = str(max(0, wait))
+                    else:
+                        virus_in_str = "0"
         # Trace: remaining lifetime of current virus epoch (if any)
         virus_life_left = None
         if self.biohazard_enabled and getattr(self, "virus_epoch_start_gen", None) is not None:
@@ -1824,6 +1886,7 @@ class TwoCampGameOfLife:
         self.screen.blit(t, (18, 20))
 
     # end draw_hud
+
 
 
     def _draw_raider_debug(self):

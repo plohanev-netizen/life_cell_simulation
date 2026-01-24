@@ -26,7 +26,7 @@ COLOR_GREEN = (60, 220, 60)
 DENSITY_PERCENT = 40  # 5..99
 
 # --- АКТИВНОСТЬ -> ВЗРЫВ ---
-ACTIVITY_TRIGGER_PERCENT = 0.2
+ACTIVITY_TRIGGER_PERCENT = 1
 ACTIVITY_PATIENCE = 1
 MIN_GENS_BETWEEN_BANGS = 30
 
@@ -95,10 +95,42 @@ VIRUS_GROUP_SPAWN_WINDOW_START = 500
 VIRUS_GROUP_SPAWN_WINDOW_END = 700
 
 # Группы: 2–3 группы, в каждой 10–30 клеток (рандом)
-VIRUS_GROUPS_MIN = 2
-VIRUS_GROUPS_MAX = 3
-VIRUS_GROUP_SIZE_MIN = 10
-VIRUS_GROUP_SIZE_MAX = 30
+VIRUS_GROUPS_MIN = 5
+VIRUS_GROUPS_MAX = 10
+VIRUS_GROUP_SIZE_MIN = 500
+VIRUS_GROUP_SIZE_MAX = 1500
+
+# Срок жизни вирусов: глобально для всех зелёных (от первого появления)
+VIRUS_GLOBAL_LIFETIME_GENS = 1500
+
+# Если вирусная клетка не менялась более N ходов — исчезает
+VIRUS_STAGNATION_GENS = 200
+
+# Вирусы могут появляться при взрыве (большой взрыв или удар райдера),
+# но только если на поле нет вирусов и если разрешено по кулдауну.
+VIRUS_SPAWN_ON_BANG_PROB = 0.35
+VIRUS_SPAWN_ON_BANG_CELLS_MIN = 8
+VIRUS_SPAWN_ON_BANG_CELLS_MAX = 40
+
+# Повторное появление: не ранее чем через N поколений после полного исчезновения вирусов
+VIRUS_RESPAWN_COOLDOWN_GENS = 700
+
+
+
+# Важно: санитары будут включаться/выключаться вместе с вирусами (пока санитары не реализованы)
+BIOHAZARD_ENABLED_DEFAULT = True
+
+VIRUS_STATE = 3
+
+# Окно первой волны спавна "групп вирусов" (по поколениям симуляции)
+VIRUS_GROUP_SPAWN_WINDOW_START = 500
+VIRUS_GROUP_SPAWN_WINDOW_END = 700
+
+# Группы: 2–3 группы, в каждой 10–30 клеток (рандом)
+VIRUS_GROUPS_MIN = 4
+VIRUS_GROUPS_MAX = 10
+VIRUS_GROUP_SIZE_MIN = 500
+VIRUS_GROUP_SIZE_MAX = 1500
 
 # Срок жизни вирусов: глобально для всех зелёных (от первого появления)
 VIRUS_GLOBAL_LIFETIME_GENS = 800
@@ -525,6 +557,8 @@ class TwoCampGameOfLife:
         self.explosions = 0
         self.manual_explosions = 0
         self.raider_explosions = 0
+        self.last_explosion_gen = 0  # any explosion (big/raider/manual)
+
 
         self.activity_trigger = float(ACTIVITY_TRIGGER_PERCENT)
         self.activity_patience = int(ACTIVITY_PATIENCE)
@@ -579,11 +613,15 @@ class TwoCampGameOfLife:
 
         # Virus state bookkeeping
         self.virus_epoch_start_gen = None  # generation when first virus appeared in current epoch
-        self.last_virus_end_gen = -10**9    # generation when viruses fully disappeared last time
+        self.last_virus_end_gen = -1_000_000_000    # generation when viruses fully disappeared last time
         self.virus_groups_spawn_gen = None  # planned generation for group spawn
         self.virus_groups_spawned_or_canceled = False
         self.virus_last_change_gen = np.full((self.rows, self.cols), -10**9, dtype=np.int32)
 
+        # Spontaneous respawn after cooldown: require 100 gens without any explosion after VirusIn hits 0
+        self.virus_quiet_start_gen = None
+        self.virus_quiet_deadline_gen = None
+        self.virus_quiet_blocked = False
         # Virus counters
         self.virus_spawns = 0
         self.virus_infections = 0
@@ -785,7 +823,10 @@ class TwoCampGameOfLife:
     # end compute_oscillating_mask
     
     def compute_activity(self, old_grid, new_grid):
-        total_cells = old_grid.size
+        # Активность = доля "активных" (изменившихся) клеток среди ВСЕХ ЖИВЫХ клеток,
+        # а не среди всех ячеек поля.
+        #
+        # "Живые" = любые состояния != 0 (включая вирусы).
         changed = (new_grid != old_grid)
 
         osc_mask = self.compute_oscillating_mask(old_grid, new_grid)
@@ -797,12 +838,16 @@ class TwoCampGameOfLife:
         active_red_count = int(np.sum(changed_no_osc & ((old_grid == 2) | (new_grid == 2))))
         active_virus_count = int(np.sum(changed_no_osc & ((old_grid == 3) | (new_grid == 3))))
 
-        act_total = 100.0 * active_total_count / float(total_cells)
-        act_white = 100.0 * active_white_count / float(total_cells)
-        act_red = 100.0 * active_red_count / float(total_cells)
-        act_virus = 100.0 * active_virus_count / float(total_cells)
+        alive_mask = (old_grid != 0) | (new_grid != 0)
+        alive_total = int(np.sum(alive_mask))
+        denom = float(alive_total) if alive_total > 0 else 1.0
 
-        osc_percent = 100.0 * int(np.sum(osc_mask)) / float(total_cells)
+        act_total = 100.0 * active_total_count / denom
+        act_white = 100.0 * active_white_count / denom
+        act_red = 100.0 * active_red_count / denom
+        act_virus = 100.0 * active_virus_count / denom
+
+        osc_percent = 100.0 * int(np.sum(osc_mask)) / denom
 
         return (act_total, act_white, act_red, act_virus, osc_percent,
                 active_total_count, active_white_count, active_red_count, active_virus_count)
@@ -993,6 +1038,7 @@ class TwoCampGameOfLife:
         self.explosions += 1
         self.log_event("BIG_BANG", extra=str(info))
         self.gen_since_bang = 0
+        self.last_explosion_gen = int(self.generation)
         self.low_activity_streak = 0
         self.history.clear()
 
@@ -1005,6 +1051,7 @@ class TwoCampGameOfLife:
         cap, k = self._apply_ball(gy, gx, r, fill_density=0.45)
         self.manual_explosions += 1
         self.log_event("MANUAL_BANG", extra=f"center=({gx},{gy}) r={r} cap={cap} k={k}")
+        self.last_explosion_gen = int(self.generation)
         self.history.clear()
 
     # ----------------------------
@@ -1184,7 +1231,7 @@ class TwoCampGameOfLife:
                 self._maybe_spawn_viruses_from_bang(cx0, cy0, RAIDER_EXPLOSION_RADIUS, grid_target=new_grid)
 
                 # Virus spawn on raider strike (if eligible)
-                self._maybe_spawn_virus_on_bang([(cy0, cx0, RAIDER_EXPLOSION_RADIUS)], tag='raider_strike', grid_override=new_grid)
+                self._maybe_spawn_viruses_from_bang(cx0, cy0, RAIDER_EXPLOSION_RADIUS, grid_target=new_grid)
 
                 dbg['exploded'] += 1
                 if self.raider_debug:
@@ -1193,6 +1240,7 @@ class TwoCampGameOfLife:
 
                 processed_groups += 1
                 self.raider_explosions += 1
+                self.last_explosion_gen = int(self.generation)
                 self.log_event(
                     "RAIDER_STRIKE",
                     extra=f"color={color_state} center=({cx0},{cy0}) enemyWin40={enemy_cnt} comp={len(comp)}"
@@ -1230,8 +1278,9 @@ class TwoCampGameOfLife:
         self.virus_groups_spawned_or_canceled = False
     # end _plan_virus_groups_spawn
 
-    def _spawn_virus_groups(self):
+    def _spawn_virus_groups(self, grid_target=None):
         """Spawn 2–3 virus groups (10–30 cells each) at random positions."""
+        grid = self.grid if grid_target is None else grid_target
         groups = int(np.random.randint(VIRUS_GROUPS_MIN, VIRUS_GROUPS_MAX + 1))
         for _ in range(groups):
             size = int(np.random.randint(VIRUS_GROUP_SIZE_MIN, VIRUS_GROUP_SIZE_MAX + 1))
@@ -1241,7 +1290,7 @@ class TwoCampGameOfLife:
             x, y = cx, cy
             for _k in range(size):
                 if 0 <= x < self.cols and 0 <= y < self.rows:
-                    self.grid[y, x] = VIRUS_STATE
+                    grid[y, x] = VIRUS_STATE
                     self.virus_last_change_gen[y, x] = int(self.generation)
                 dx = int(np.random.randint(-1, 2))
                 dy = int(np.random.randint(-1, 2))
@@ -1252,7 +1301,7 @@ class TwoCampGameOfLife:
         if self.virus_epoch_start_gen is None:
             self.virus_epoch_start_gen = int(self.generation)
         self.log_event("VIRUS_SPAWN", extra=f"type=groups gen={int(self.generation)}")
-    # end _spawn_virus_groups
+        # end _spawn_virus_groups
 
     def _maybe_spawn_viruses_from_bang(self, cx, cy, radius, grid_target=None):
         """Potentially spawn viruses inside a bang circle."""
@@ -1287,6 +1336,10 @@ class TwoCampGameOfLife:
             if self.virus_epoch_start_gen is None:
                 self.virus_epoch_start_gen = int(self.generation)
             self.log_event("VIRUS_SPAWN", extra=f"type=bang placed={placed} gen={int(self.generation)}")
+            # cancel any pending spontaneous respawn window
+            self.virus_quiet_start_gen = None
+            self.virus_quiet_deadline_gen = None
+            self.virus_quiet_blocked = False
             return True
         return False
     # end _maybe_spawn_viruses_from_bang
@@ -1332,8 +1385,11 @@ class TwoCampGameOfLife:
         if (not self.virus_groups_spawned_or_canceled) and (self.virus_groups_spawn_gen is not None):
             if gen >= int(self.virus_groups_spawn_gen):
                 if self._can_spawn_viruses_now():
-                    self._spawn_virus_groups()
-                    new_grid[:] = self.grid
+                    self._spawn_virus_groups(grid_target=new_grid)
+                    # cancel any pending spontaneous respawn window
+                    self.virus_quiet_start_gen = None
+                    self.virus_quiet_deadline_gen = None
+                    self.virus_quiet_blocked = False
                 self.virus_groups_spawned_or_canceled = True
 
         # 2) Global TTL expiry
@@ -1351,6 +1407,10 @@ class TwoCampGameOfLife:
         # 3) Per-cell stagnation expiry
         virus_new = (new_grid == VIRUS_STATE)
         if np.any(virus_new):
+            # cancel pending spontaneous respawn window while viruses exist
+            self.virus_quiet_start_gen = None
+            self.virus_quiet_deadline_gen = None
+            self.virus_quiet_blocked = False
             virus_old = (old_grid == VIRUS_STATE)
             unchanged = virus_new & virus_old
             changed_or_new = virus_new & (~virus_old)
@@ -1369,7 +1429,34 @@ class TwoCampGameOfLife:
             if self.virus_epoch_start_gen is not None or np.any(old_grid == VIRUS_STATE):
                 self.virus_epoch_start_gen = None
                 self.last_virus_end_gen = gen
-    # end _postprocess_virus_lifecycle
+    
+        # 4) Spontaneous respawn AFTER cooldown if there were no explosions for 100 gens
+        #    Trigger condition: VirusIn == 0 (cooldown passed) and still no viruses on field.
+        if (not np.any(new_grid == VIRUS_STATE)) and self._can_spawn_viruses_now():
+            # Start / maintain a "quiet window" after cooldown ends
+            if self.virus_quiet_start_gen is None:
+                self.virus_quiet_start_gen = gen
+                self.virus_quiet_deadline_gen = gen + 100
+                self.virus_quiet_blocked = False
+
+            # If an explosion happens during the window -> block this attempt
+            if (self.last_explosion_gen is not None) and (self.last_explosion_gen >= int(self.virus_quiet_start_gen)) and (self.last_explosion_gen < int(self.virus_quiet_deadline_gen)):
+                self.virus_quiet_blocked = True
+
+            # Deadline reached -> if no explosions, spawn scattered virus groups (can overwrite other cells)
+            if gen >= int(self.virus_quiet_deadline_gen):
+                if not self.virus_quiet_blocked:
+                    self._spawn_virus_groups(grid_target=new_grid)
+                    # Reset window after successful spawn
+                    self.virus_quiet_start_gen = None
+                    self.virus_quiet_deadline_gen = None
+                    self.virus_quiet_blocked = False
+                else:
+                    # Restart window from now (rolling "100 gens of calm" requirement)
+                    self.virus_quiet_start_gen = gen
+                    self.virus_quiet_deadline_gen = gen + 100
+                    self.virus_quiet_blocked = False
+# end _postprocess_virus_lifecycle
     def _generate_connected_offsets(self, n=4):
         offsets = {(0, 0)}
         neighbors8 = [(dy, dx) for dy in (-1, 0, 1) for dx in (-1, 0, 1) if not (dy == 0 and dx == 0)]
@@ -1410,120 +1497,120 @@ class TwoCampGameOfLife:
     # Update logic
     # ----------------------------
     # end try_place_group_of_4
-def update_logic(self):
-    old_grid0 = self.grid
-
-    # 1) Virus infection step (before Life rules)
-    old_grid = self._apply_virus_infection(old_grid0)
-
-    is_white = (old_grid == 1)
-    is_red = (old_grid == 2)
-    is_virus = (old_grid == 3)
-    is_alive = is_white | is_red | is_virus
-
-    white_neighbors = self.count_neighbors_vectorized(is_white)
-    red_neighbors = self.count_neighbors_vectorized(is_red)
-    virus_neighbors = self.count_neighbors_vectorized(is_virus)
-    total_neighbors = white_neighbors + red_neighbors + virus_neighbors
-
-    survivors_mask = is_alive & ((total_neighbors == 2) | (total_neighbors == 3))
-    newborn_mask = (~is_alive) & (total_neighbors == 3)
-
-    new_grid = np.zeros_like(old_grid)
-    new_grid[survivors_mask] = old_grid[survivors_mask]
-
-    # majority color among 3 for births
-    max_counts = np.maximum.reduce([white_neighbors, red_neighbors, virus_neighbors])
-    is_max_w = (white_neighbors == max_counts)
-    is_max_r = (red_neighbors == max_counts)
-    is_max_v = (virus_neighbors == max_counts)
-
-    # If unique max -> choose it
-    unique_w = is_max_w & (~is_max_r) & (~is_max_v)
-    unique_r = is_max_r & (~is_max_w) & (~is_max_v)
-    unique_v = is_max_v & (~is_max_w) & (~is_max_r)
-
-    new_grid[newborn_mask & unique_w] = 1
-    new_grid[newborn_mask & unique_r] = 2
-    new_grid[newborn_mask & unique_v] = 3
-
-    # ties -> random among tied max colors
-    tie_newborn = newborn_mask & ~(unique_w | unique_r | unique_v)
-    if np.any(tie_newborn):
-        rand = np.random.random(old_grid.shape)
-        # 2-way ties
-        wr = tie_newborn & is_max_w & is_max_r & (~is_max_v)
-        wv = tie_newborn & is_max_w & is_max_v & (~is_max_r)
-        rv = tie_newborn & is_max_r & is_max_v & (~is_max_w)
-        # 3-way tie
-        wrv = tie_newborn & is_max_w & is_max_r & is_max_v
-
-        if np.any(wr):
-            new_grid[wr] = np.where(rand[wr] < 0.5, 1, 2).astype(np.uint8)
-        if np.any(wv):
-            new_grid[wv] = np.where(rand[wv] < 0.5, 1, 3).astype(np.uint8)
-        if np.any(rv):
-            new_grid[rv] = np.where(rand[rv] < 0.5, 2, 3).astype(np.uint8)
-        if np.any(wrv):
-            # split into 3
-            r3 = rand[wrv]
-            out = np.empty_like(r3, dtype=np.uint8)
-            out[r3 < (1/3)] = 1
-            out[(r3 >= (1/3)) & (r3 < (2/3))] = 2
-            out[r3 >= (2/3)] = 3
-            new_grid[wrv] = out
-
-    # Raiders (still only white/red interact)
-    self._apply_raider_strikes(old_grid, new_grid)
-
-    # Virus lifecycle (stagnation + global TTL) + spontaneous spawn scheduling
-    self._postprocess_virus_lifecycle(old_grid, new_grid)
-
-    # Activity (includes virus)
-    (act_total, act_white, act_red, act_virus, osc_percent,
-     active_total_count, active_white_count, active_red_count, active_virus_count) = self.compute_activity(old_grid0, new_grid)
-
-    self.activity_total = act_total
-    self.activity_white = act_white
-    self.activity_red = act_red
-    self.activity_virus = act_virus
-    self.oscillating_percent = osc_percent
-    self.active_total_count = active_total_count
-    self.active_white_count = active_white_count
-    self.active_red_count = active_red_count
-    self.active_virus_count = active_virus_count
-
-    # History for oscillator detection
-    self.history.append(old_grid0.copy())
-    if len(self.history) > self.history_limit:
-        self.history.pop(0)
-
-    self.grid = new_grid
-    self.generation += 1
-    self.gen_since_bang += 1
-
-    self._append_stats_point(
-        active_total=self.active_total_count,
-        active_red=self.active_red_count,
-        active_white=self.active_white_count,
-        active_virus=self.active_virus_count,
-    )
-    self._invalidate_stats_cache()
-    self.mpl_live.update(self.stats)
-
-    # Big bang trigger by activity
-    if self.activity_total < self.activity_trigger:
-        self.low_activity_streak += 1
-    else:
-        self.low_activity_streak = 0
-
-    if self.low_activity_streak >= self.activity_patience:
-        if self.gen_since_bang >= self.min_gens_between_bangs:
-            self.big_bang()
+    def update_logic(self):
+        old_grid0 = self.grid
+    
+        # 1) Virus infection step (before Life rules)
+        old_grid = self._apply_virus_infection(old_grid0)
+    
+        is_white = (old_grid == 1)
+        is_red = (old_grid == 2)
+        is_virus = (old_grid == 3)
+        is_alive = is_white | is_red | is_virus
+    
+        white_neighbors = self.count_neighbors_vectorized(is_white)
+        red_neighbors = self.count_neighbors_vectorized(is_red)
+        virus_neighbors = self.count_neighbors_vectorized(is_virus)
+        total_neighbors = white_neighbors + red_neighbors + virus_neighbors
+    
+        survivors_mask = is_alive & ((total_neighbors == 2) | (total_neighbors == 3))
+        newborn_mask = (~is_alive) & (total_neighbors == 3)
+    
+        new_grid = np.zeros_like(old_grid)
+        new_grid[survivors_mask] = old_grid[survivors_mask]
+    
+        # majority color among 3 for births
+        max_counts = np.maximum.reduce([white_neighbors, red_neighbors, virus_neighbors])
+        is_max_w = (white_neighbors == max_counts)
+        is_max_r = (red_neighbors == max_counts)
+        is_max_v = (virus_neighbors == max_counts)
+    
+        # If unique max -> choose it
+        unique_w = is_max_w & (~is_max_r) & (~is_max_v)
+        unique_r = is_max_r & (~is_max_w) & (~is_max_v)
+        unique_v = is_max_v & (~is_max_w) & (~is_max_r)
+    
+        new_grid[newborn_mask & unique_w] = 1
+        new_grid[newborn_mask & unique_r] = 2
+        new_grid[newborn_mask & unique_v] = 3
+    
+        # ties -> random among tied max colors
+        tie_newborn = newborn_mask & ~(unique_w | unique_r | unique_v)
+        if np.any(tie_newborn):
+            rand = np.random.random(old_grid.shape)
+            # 2-way ties
+            wr = tie_newborn & is_max_w & is_max_r & (~is_max_v)
+            wv = tie_newborn & is_max_w & is_max_v & (~is_max_r)
+            rv = tie_newborn & is_max_r & is_max_v & (~is_max_w)
+            # 3-way tie
+            wrv = tie_newborn & is_max_w & is_max_r & is_max_v
+    
+            if np.any(wr):
+                new_grid[wr] = np.where(rand[wr] < 0.5, 1, 2).astype(np.uint8)
+            if np.any(wv):
+                new_grid[wv] = np.where(rand[wv] < 0.5, 1, 3).astype(np.uint8)
+            if np.any(rv):
+                new_grid[rv] = np.where(rand[rv] < 0.5, 2, 3).astype(np.uint8)
+            if np.any(wrv):
+                # split into 3
+                r3 = rand[wrv]
+                out = np.empty_like(r3, dtype=np.uint8)
+                out[r3 < (1/3)] = 1
+                out[(r3 >= (1/3)) & (r3 < (2/3))] = 2
+                out[r3 >= (2/3)] = 3
+                new_grid[wrv] = out
+    
+        # Raiders (still only white/red interact)
+        self._apply_raider_strikes(old_grid, new_grid)
+    
+        # Virus lifecycle (stagnation + global TTL) + spontaneous spawn scheduling
+        self._postprocess_virus_lifecycle(old_grid, new_grid)
+    
+        # Activity (includes virus)
+        (act_total, act_white, act_red, act_virus, osc_percent,
+         active_total_count, active_white_count, active_red_count, active_virus_count) = self.compute_activity(old_grid0, new_grid)
+    
+        self.activity_total = act_total
+        self.activity_white = act_white
+        self.activity_red = act_red
+        self.activity_virus = act_virus
+        self.oscillating_percent = osc_percent
+        self.active_total_count = active_total_count
+        self.active_white_count = active_white_count
+        self.active_red_count = active_red_count
+        self.active_virus_count = active_virus_count
+    
+        # History for oscillator detection
+        self.history.append(old_grid0.copy())
+        if len(self.history) > self.history_limit:
+            self.history.pop(0)
+    
+        self.grid = new_grid
+        self.generation += 1
+        self.gen_since_bang += 1
+    
+        self._append_stats_point(
+            active_total=self.active_total_count,
+            active_red=self.active_red_count,
+            active_white=self.active_white_count,
+            active_virus=self.active_virus_count,
+        )
+        self._invalidate_stats_cache()
+        self.mpl_live.update(self.stats)
+    
+        # Big bang trigger by activity
+        if self.activity_total < self.activity_trigger:
+            self.low_activity_streak += 1
         else:
             self.low_activity_streak = 0
-
-# end update_logic
+    
+        if self.low_activity_streak >= self.activity_patience:
+            if self.gen_since_bang >= self.min_gens_between_bangs:
+                self.big_bang()
+            else:
+                self.low_activity_streak = 0
+    
+    # end update_logic
     def _controls_overlay_visible(self):
         now = time.time()
         return self.controls_toggle or (now < self.controls_start_until)
@@ -1738,6 +1825,34 @@ def update_logic(self):
     def draw_hud(self):
         count_white = int(np.sum(self.grid == 1))
         count_red = int(np.sum(self.grid == 2))
+        count_virus = int(np.sum(self.grid == VIRUS_STATE)) if self.biohazard_enabled else 0
+
+        # Trace: VirusIn отображает:
+        # - обратный отсчёт до первой волны (пока она запланирована и не отменена);
+        # - '-' когда вирусы уже есть на поле;
+        # - обратный отсчёт до следующего разрешённого появления после полного исчезновения (кулдаун).
+        virus_in_str = "-"
+        if self.biohazard_enabled:
+            has_virus_now = bool(np.any(self.grid == VIRUS_STATE))
+            if has_virus_now:
+                virus_in_str = "-"
+            else:
+                gen = int(self.generation)
+                # 1) Первая волна: пока не заспавнена/не отменена — показываем отсчёт
+                if getattr(self, "virus_groups_spawn_gen", None) is not None and (not getattr(self, "virus_groups_spawned_or_canceled", False)):
+                    virus_in_str = str(max(0, int(self.virus_groups_spawn_gen) - gen))
+                else:
+                    # 2) После полного исчезновения: показываем кулдаун до следующего появления
+                    last_end = getattr(self, "last_virus_end_gen", None)
+                    if last_end is not None:
+                        wait = int(VIRUS_RESPAWN_COOLDOWN_GENS) - (gen - int(last_end))
+                        virus_in_str = str(max(0, wait))
+                    else:
+                        virus_in_str = "0"
+        # Trace: remaining lifetime of current virus epoch (if any)
+        virus_life_left = None
+        if self.biohazard_enabled and getattr(self, "virus_epoch_start_gen", None) is not None:
+            virus_life_left = max(0, int(VIRUS_GLOBAL_LIFETIME_GENS) - (int(self.generation) - int(self.virus_epoch_start_gen)))
 
         panel_h = 56
         s = pygame.Surface((self.screen.get_width(), panel_h))
@@ -1746,18 +1861,34 @@ def update_logic(self):
         self.screen.blit(s, (0, 0))
 
         raider = "ON" if self.enable_raider_strike else "OFF"
+        bio = "ON" if self.biohazard_enabled else "OFF"
+
         # HUD intentionally keeps only the most important runtime stats.
         # Removed from HUD (but still counted): field size, since-bang counters, manual explosions,
         # and key-hints for T/G and bang-threshold.
+        virus_trace = ""
+        if self.biohazard_enabled:
+            gens_to_virus_str = virus_in_str
+            if virus_life_left is None:
+                virus_life_left_str = "-"
+            else:
+                virus_life_left_str = str(int(virus_life_left))
+            virus_trace = f" | VirusIn:{gens_to_virus_str} | V:{count_virus} | VLife:{virus_life_left_str}"
+
         stats = (
             f"Gen:{self.generation} | Expl:{self.explosions} | RaiderExpl:{self.raider_explosions} | "
-            f"W:{count_white} R:{count_red} | Spd:{self.speed}/s | Den:{self.density_percent}% | "
-            f"ActTot:{self.activity_total:.4f}% | H:Help | F:Fullscreen | E:Raider({raider}) | Y:RaiderDbg"
+            f"W:{count_white} R:{count_red} | Spd:{self.speed}/s | "
+            f"ActTot:{self.activity_total:.4f}%"
+            f"{virus_trace}"
+            f" | H:Help | F:Fullscreen | E:Raider({raider}) | V:Bio({bio}) | Y:RaiderDbg"
         )
         t = self.small_font.render(stats, True, (230, 230, 230))
         self.screen.blit(t, (18, 20))
 
     # end draw_hud
+
+
+
     def _draw_raider_debug(self):
         if (not self.raider_debug) or (not self._raider_dbg_points):
             return
