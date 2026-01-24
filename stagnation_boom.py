@@ -6,25 +6,20 @@ from datetime import datetime
 # ----------------------------
 # ВИРТУАЛЬНОЕ ПОЛЕ (симуляция)
 # ----------------------------
-# Это "размер мира", который ты хочешь симулировать.
-# Если поставишь 3000x3000 — мир будет таким, но на экране он будет уменьшен так,
-# чтобы помещаться целиком.
-FIELD_PX_W, FIELD_PX_H = 3000, 3000
+FIELD_PX_W, FIELD_PX_H = 5000, 3000
 
 # ----------------------------
 # ОКНО (фактический экран)
 # ----------------------------
-# Это "желательный размер окна". Если он больше монитора — автоматически возьмём размер монитора.
 WINDOW_W, WINDOW_H = 1200, 800
-
-START_FULLSCREEN = False  # можно True
+START_FULLSCREEN = False
 
 TARGET_FPS = 60
 
 # Цвета (RGB)
-COLOR_BG = (0, 0, 30)           # Темно-синий фон
-COLOR_WHITE = (220, 220, 255)   # Белые клетки
-COLOR_RED = (220, 50, 50)       # Красные клетки
+COLOR_BG = (0, 0, 30)
+COLOR_WHITE = (220, 220, 255)
+COLOR_RED = (220, 50, 50)
 
 # --- ПЛОТНОСТЬ (в %), одинаковая для обеих сторон ---
 DENSITY_PERCENT = 40  # 5..99
@@ -35,7 +30,7 @@ ACTIVITY_PATIENCE = 1
 MIN_GENS_BETWEEN_BANGS = 30
 
 # Сценарии взрыва
-BIG_BANG_PROB_CENTER = 0.5  # 50/50
+BIG_BANG_PROB_CENTER = 0.5
 
 # Большой шар
 BIG_BANG_FRACTION_OF_GRID = 0.33
@@ -50,14 +45,49 @@ SMALL_BANG_RADIUS_MAX_FRAC_OF_MINOR = 0.30
 SMALL_BANG_FILL_DENSITY = 0.45
 
 # Ограничение перекрытия малых шаров
-SMALL_BANG_MAX_OVERLAP_FRAC = 0.20  # максимум 20% перекрытия (по меньшему радиусу)
-SMALL_BANG_PLACE_TRIES = 250        # попыток поставить каждый шар
+SMALL_BANG_MAX_OVERLAP_FRAC = 0.20
+SMALL_BANG_PLACE_TRIES = 250
 
-# Детектор циклов: исключаем клетки, которые зациклены (осцилляторы)
-OSC_MAX_PERIOD = 4  # 2..4
+# Детектор циклов
+OSC_MAX_PERIOD = 4
 
 # Лог-файл
 LOG_FILE = "life_stats.log"
+
+
+class ManualBlast:
+    """
+    Ручной мини-взрыв:
+    - ЛКМ удерживать > hold_seconds
+    - центр взрыва = текущая позиция курсора (в координатах grid)
+    - радиус фиксированный (в клетках)
+    - не влияет на алгоритмические взрывы
+    """
+    def __init__(self, hold_seconds=2.0, radius_cells=40):
+        self.hold_seconds = float(hold_seconds)
+        self.radius_cells = int(radius_cells)
+
+        self.holding = False
+        self.triggered = False
+        self.start_time = 0.0
+
+    def start_hold(self):
+        self.holding = True
+        self.triggered = False
+        self.start_time = time.time()
+
+    def stop_hold(self):
+        self.holding = False
+        self.triggered = False
+        self.start_time = 0.0
+
+    def should_trigger(self):
+        if not self.holding or self.triggered:
+            return False
+        return (time.time() - self.start_time) >= self.hold_seconds
+
+    def mark_triggered(self):
+        self.triggered = True
 
 
 class TwoCampGameOfLife:
@@ -77,7 +107,6 @@ class TwoCampGameOfLife:
         self.window_h = int(window_h)
         self.fullscreen = bool(start_fullscreen)
 
-        # Создаём окно корректно (с учётом монитора/ретины)
         self.screen = None
         self._create_display()
 
@@ -97,7 +126,8 @@ class TwoCampGameOfLife:
         # Счётчики
         self.generation = 0
         self.gen_since_bang = 0
-        self.explosions = 0
+        self.explosions = 0               # алгоритмические
+        self.manual_explosions = 0        # ручные
 
         # --- Активность ---
         self.activity_trigger = float(ACTIVITY_TRIGGER_PERCENT)
@@ -134,6 +164,10 @@ class TwoCampGameOfLife:
         self.view_rect = pygame.Rect(0, 0, 1, 1)
         self._update_view_transform()
 
+        # Ручной взрыв
+        self.manual_blast = ManualBlast(hold_seconds=0.5, radius_cells=40)
+
+
         # Инициализация по плотности
         self.validate_and_initialize_by_density()
 
@@ -146,14 +180,12 @@ class TwoCampGameOfLife:
     # Display / Scaling
     # ----------------------------
     def _create_display(self):
-        # В pygame 2 на macOS ретина лучше живёт с SCALED
         flags_window = pygame.SCALED | pygame.RESIZABLE
         flags_full = pygame.FULLSCREEN | pygame.SCALED
 
         if self.fullscreen:
             self.screen = pygame.display.set_mode((0, 0), flags_full)
         else:
-            # Подрежем окно под монитор, если просим слишком большое
             info = pygame.display.Info()
             w = min(self.window_w, info.current_w)
             h = min(self.window_h, info.current_h)
@@ -167,8 +199,6 @@ class TwoCampGameOfLife:
 
     def _update_view_transform(self):
         sw, sh = self.screen.get_size()
-
-        # Масштабируем так, чтобы ВСЁ поле помещалось целиком
         sx = sw / float(self.cols)
         sy = sh / float(self.rows)
         self.view_scale = min(sx, sy)
@@ -177,17 +207,13 @@ class TwoCampGameOfLife:
         rh = max(1, int(self.rows * self.view_scale))
         ox = (sw - rw) // 2
         oy = (sh - rh) // 2
-
         self.view_rect = pygame.Rect(ox, oy, rw, rh)
 
     def _screen_to_grid(self, x, y):
-        # Преобразуем координаты экрана в координаты сетки (с учётом масштабирования/полос)
         if not self.view_rect.collidepoint(x, y):
             return None
-
         gx = int((x - self.view_rect.x) / self.view_scale)
         gy = int((y - self.view_rect.y) / self.view_scale)
-
         if 0 <= gx < self.cols and 0 <= gy < self.rows:
             return gx, gy
         return None
@@ -201,7 +227,7 @@ class TwoCampGameOfLife:
         r = int(np.sum(self.grid == 2))
         line = (
             f"[{ts}] {event} | gen={self.generation} gen_since_bang={self.gen_since_bang} "
-            f"explosions={self.explosions} white={w} red={r} "
+            f"explosions={self.explosions} manual_explosions={self.manual_explosions} white={w} red={r} "
             f"act_total={self.activity_total:.4f}% act_w={self.activity_white:.4f}% act_r={self.activity_red:.4f}% "
             f"osc={self.oscillating_percent:.4f}%"
         )
@@ -271,15 +297,15 @@ class TwoCampGameOfLife:
         grid = grid_mask.astype(np.uint8)
         neighbors = np.zeros_like(grid, dtype=np.uint8)
 
-        neighbors[1:, :] += grid[:-1, :]     # N
-        neighbors[:-1, :] += grid[1:, :]     # S
-        neighbors[:, 1:] += grid[:, :-1]     # W
-        neighbors[:, :-1] += grid[:, 1:]     # E
+        neighbors[1:, :] += grid[:-1, :]
+        neighbors[:-1, :] += grid[1:, :]
+        neighbors[:, 1:] += grid[:, :-1]
+        neighbors[:, :-1] += grid[:, 1:]
 
-        neighbors[1:, 1:] += grid[:-1, :-1]  # NW
-        neighbors[1:, :-1] += grid[:-1, 1:]  # NE
-        neighbors[:-1, 1:] += grid[1:, :-1]  # SW
-        neighbors[:-1, :-1] += grid[1:, 1:]  # SE
+        neighbors[1:, 1:] += grid[:-1, :-1]
+        neighbors[1:, :-1] += grid[:-1, 1:]
+        neighbors[:-1, 1:] += grid[1:, :-1]
+        neighbors[:-1, :-1] += grid[1:, 1:]
 
         return neighbors
 
@@ -392,7 +418,6 @@ class TwoCampGameOfLife:
                 dx = cx - px
                 d = (dy * dy + dx * dx) ** 0.5
                 allowed_overlap = SMALL_BANG_MAX_OVERLAP_FRAC * min(r, pr)
-                # запрещаем сильное пересечение
                 if d < (r + pr - allowed_overlap):
                     return False
             return True
@@ -401,7 +426,6 @@ class TwoCampGameOfLife:
             success = False
             for _try in range(SMALL_BANG_PLACE_TRIES):
                 r = int(np.random.randint(r_lo, r_hi + 1))
-
                 cy = int(np.random.randint(r, self.rows - r)) if (self.rows - 2 * r) > 0 else self.rows // 2
                 cx = int(np.random.randint(r, self.cols - r)) if (self.cols - 2 * r) > 0 else self.cols // 2
 
@@ -435,6 +459,21 @@ class TwoCampGameOfLife:
         self.history.clear()
 
     # ----------------------------
+    # Manual blast action
+    # ----------------------------
+    def manual_boom_at(self, gx, gy):
+        # мини-взрыв радиусом 40 клеток
+        r = self.manual_blast.radius_cells
+        cap, k = self._apply_ball(gy, gx, r, fill_density=0.45)
+
+        # важно: НЕ трогаем self.explosions и НЕ сбрасываем gen_since_bang
+        self.manual_explosions += 1
+        self.log_event("MANUAL_BANG", extra=f"center=({gx},{gy}) r={r} cap={cap} k={k}")
+
+        # чтобы активность/осцилляторы не считались “на мусоре” после резкой инъекции:
+        self.history.clear()
+
+    # ----------------------------
     # Logic update
     # ----------------------------
     def update_logic(self):
@@ -452,7 +491,6 @@ class TwoCampGameOfLife:
         newborn_mask = (~is_alive) & (total_neighbors == 3)
 
         new_grid = np.zeros_like(old_grid)
-
         new_grid[survivors_mask] = old_grid[survivors_mask]
 
         majority_white = (white_neighbors > red_neighbors)
@@ -462,7 +500,7 @@ class TwoCampGameOfLife:
         new_grid[newborn_mask & majority_white] = 1
         new_grid[newborn_mask & majority_red] = 2
 
-        # Ничья -> случайно (зафиксировано)
+        # Ничья -> случайно (как фиксировали)
         tie_newborn = newborn_mask & tie
         if np.any(tie_newborn):
             random_choices = np.random.choice([1, 2], size=old_grid.shape).astype(np.uint8)
@@ -509,7 +547,6 @@ class TwoCampGameOfLife:
                 self.running = False
 
             elif event.type == pygame.VIDEORESIZE:
-                # Работает при RESIZABLE
                 self._update_view_transform()
 
             elif event.type == pygame.KEYDOWN:
@@ -529,12 +566,8 @@ class TwoCampGameOfLife:
                     self.speed = min(60, self.speed + 2)
                 elif event.key == pygame.K_DOWN:
                     self.speed = max(1, self.speed - 2)
-
-                # Fullscreen toggle (на маке удобно)
                 elif event.key == pygame.K_f:
                     self._toggle_fullscreen()
-
-                # тест: менять плотность
                 elif event.key == pygame.K_1:
                     self.density_percent = int(np.clip(self.density_percent - 5, 5, 99))
                     self.validate_and_initialize_by_density()
@@ -543,20 +576,39 @@ class TwoCampGameOfLife:
                     self.density_percent = int(np.clip(self.density_percent + 5, 5, 99))
                     self.validate_and_initialize_by_density()
                     self.log_event("DENSITY", extra=f"set={self.density_percent}%")
-
-                # ручной взрыв
                 elif event.key == pygame.K_b:
                     if self.gen_since_bang >= self.min_gens_between_bangs:
                         self.big_bang()
 
-        # Рисование мышью (с учётом масштабирования)
+            # --- Ручной мини-взрыв: удержание ЛКМ > 2 сек ---
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1 and not shift_held:
+                    self.manual_blast.start_hold()
+
+            elif event.type == pygame.MOUSEBUTTONUP:
+                if event.button == 1:
+                    self.manual_blast.stop_hold()
+
+        # Текущая позиция мыши -> grid
+        mx, my = pygame.mouse.get_pos()
+        gpos = self._screen_to_grid(mx, my)
+
+        # 1) Проверяем: пора ли вручную взрывать
+        if gpos is not None and self.manual_blast.should_trigger():
+            gx, gy = gpos
+            self.manual_boom_at(gx, gy)
+            self.manual_blast.mark_triggered()
+
+        # 2) Рисование мышью (с учётом масштабирования)
         mouse_pressed = pygame.mouse.get_pressed()
-        x, y = pygame.mouse.get_pos()
-        gpos = self._screen_to_grid(x, y)
         if gpos is None:
             return
 
         grid_x, grid_y = gpos
+
+        # Если мини-взрыв уже сработал на этом удержании — не рисуем пока не отпустят
+        if self.manual_blast.holding and self.manual_blast.triggered:
+            return
 
         if shift_held and mouse_pressed[0]:
             self.grid[grid_y, grid_x] = 0
@@ -572,56 +624,50 @@ class TwoCampGameOfLife:
         count_white = int(np.sum(self.grid == 1))
         count_red = int(np.sum(self.grid == 2))
 
-        panel_h = 42
+        panel_h = 46
         s = pygame.Surface((self.screen.get_width(), panel_h))
         s.set_alpha(200)
         s.fill((0, 0, 0))
         self.screen.blit(s, (0, 0))
 
         stats = (
-            f"Field:{self.cols}x{self.rows} | Gen:{self.generation} | SinceBang:{self.gen_since_bang} | Expl:{self.explosions} | "
+            f"Field:{self.cols}x{self.rows} | Gen:{self.generation} | SinceBang:{self.gen_since_bang} | "
+            f"Expl:{self.explosions} | ManExpl:{self.manual_explosions} | "
             f"W:{count_white} R:{count_red} | Spd:{self.speed}/s | Den:{self.density_percent}% | "
             f"ActTot:{self.activity_total:.4f}% ActW:{self.activity_white:.4f}% ActR:{self.activity_red:.4f}% | "
             f"Osc:{self.oscillating_percent:.4f}% | Bang< {self.activity_trigger:.2f}% | F:Fullscreen"
         )
         t = self.small_font.render(stats, True, (230, 230, 230))
-        self.screen.blit(t, (20, 14))
+        self.screen.blit(t, (20, 16))
 
         if self.paused:
-            help_s = pygame.Surface((520, 130))
+            help_s = pygame.Surface((620, 150))
             help_s.set_alpha(180)
             help_s.fill((0, 0, 0))
-            self.screen.blit(help_s, (10, self.screen.get_height() - 140))
+            self.screen.blit(help_s, (10, self.screen.get_height() - 160))
 
             controls = [
                 "PAUSED",
-                "L-Click: White | R-Click: Red",
-                "Shift+Click: Erase",
-                "Space: Run | R: Reset | C: Clear",
-                "Arrows: Adjust Speed",
+                "L-Click: White | R-Click: Red | Shift+L-Click: Erase",
+                "Hold L-Click > 2s: MANUAL mini-bang (radius 40 cells)",
+                "Space: Run | R: Reset | C: Clear | Arrows: Speed",
                 "1/2: Density -/+ 5% (restarts)",
-                "B: Big Bang (manual test)",
-                "F: Toggle Fullscreen"
+                "B: Big Bang (manual test) | F: Toggle Fullscreen",
             ]
             for i, line in enumerate(controls):
                 c = COLOR_WHITE if i > 0 else (255, 255, 0)
                 t2 = self.small_font.render(line, True, c)
-                self.screen.blit(t2, (20, self.screen.get_height() - 130 + i * 18))
+                self.screen.blit(t2, (20, self.screen.get_height() - 150 + i * 20))
 
     def draw(self):
-        # 1) Рендерим "мир" в поверхность cols x rows
         rgb_array = self.palette[self.grid]
         surface = pygame.surfarray.make_surface(rgb_array.swapaxes(0, 1))
 
-        # 2) Масштабируем под окно так, чтобы всё поле было видно
         if surface.get_width() != self.view_rect.w or surface.get_height() != self.view_rect.h:
             surface = pygame.transform.scale(surface, (self.view_rect.w, self.view_rect.h))
 
-        # 3) Заливаем фон и рисуем поле (с возможными "полосами")
         self.screen.fill(COLOR_BG)
         self.screen.blit(surface, (self.view_rect.x, self.view_rect.y))
-
-        # HUD поверх
         self.draw_hud()
         pygame.display.flip()
 
@@ -655,3 +701,4 @@ if __name__ == "__main__":
         start_fullscreen=START_FULLSCREEN
     )
     game.run()
+    
