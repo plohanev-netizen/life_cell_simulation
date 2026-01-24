@@ -526,3 +526,4 @@
 [2026-01-24 14:06:24] MANUAL_BANG | gen=3309 gen_since_bang=431 explosions=5 manual_explosions=38 white=20803 red=24094 act_total=0.5967% act_w=0.2605% act_r=0.3362% osc=1.9522% | center=(1182,702) r=40 cap=5025 k=2261
 [2026-01-24 14:06:25] MANUAL_BANG | gen=3327 gen_since_bang=449 explosions=5 manual_explosions=39 white=20146 red=23907 act_total=0.6065% act_w=0.2619% act_r=0.3446% osc=1.9212% | center=(1236,730) r=40 cap=2794 k=1257
 [2026-01-24 14:06:42] BIG_BANG | gen=3544 gen_since_bang=666 explosions=6 manual_explosions=39 white=80096 red=81601 act_total=0.3996% act_w=0.1814% act_r=0.2181% osc=1.6090% | {'scenario': 'center', 'balls': 1, 'r': 313, 'cap': 307713, 'k': 138470}
+[2026-01-24 14:07:43] BIG_BANG | gen=4226 gen_since_bang=682 explosions=7 manual_explosions=39 white=80357 red=79921 act_total=0.3982% act_w=0.2000% act_r=0.1982% osc=1.5759% | {'scenario': 'center', 'balls': 1, 'r': 313, 'cap': 307713, 'k': 138470}
