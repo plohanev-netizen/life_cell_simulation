@@ -1,0 +1,475 @@
+[2026-01-24 12:58:57] START | gen=0 gen_since_bang=0 explosions=0 white=4800 red=4800 | density=20% grid=200x300 scale=4
+[2026-01-24 13:07:18] END | gen=7131 gen_since_bang=7131 explosions=0 white=1024 red=640
+[2026-01-24 13:07:22] START | gen=0 gen_since_bang=0 explosions=0 white=4800 red=4800 act_total=0.00% act_w=0.00% act_r=0.00% osc=0.00% | density=20% grid=200x300 scale=4
+[2026-01-24 13:07:30] BIG_BANG | gen=3 gen_since_bang=3 explosions=1 white=4503 red=4312 act_total=6.76% act_w=3.42% act_r=3.34% osc=6.05% | gen_to_bang=3 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:30] BIG_BANG | gen=4 gen_since_bang=1 explosions=2 white=4163 red=4107 act_total=12.67% act_w=6.58% act_r=6.08% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=5 gen_since_bang=1 explosions=3 white=4071 red=4078 act_total=11.91% act_w=5.89% act_r=6.02% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=6 gen_since_bang=1 explosions=4 white=4113 red=3928 act_total=11.45% act_w=5.73% act_r=5.72% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=7 gen_since_bang=1 explosions=5 white=3940 red=3957 act_total=11.65% act_w=5.88% act_r=5.76% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=8 gen_since_bang=1 explosions=6 white=3873 red=3931 act_total=11.24% act_w=5.69% act_r=5.55% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=9 gen_since_bang=1 explosions=7 white=3771 red=3799 act_total=10.97% act_w=5.40% act_r=5.57% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=10 gen_since_bang=1 explosions=8 white=3742 red=3761 act_total=10.84% act_w=5.36% act_r=5.48% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=11 gen_since_bang=1 explosions=9 white=3731 red=3707 act_total=10.57% act_w=5.06% act_r=5.50% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=12 gen_since_bang=1 explosions=10 white=3539 red=3811 act_total=10.44% act_w=5.18% act_r=5.26% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=13 gen_since_bang=1 explosions=11 white=3521 red=3629 act_total=10.20% act_w=4.82% act_r=5.38% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=14 gen_since_bang=1 explosions=12 white=3520 red=3616 act_total=9.77% act_w=4.73% act_r=5.04% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=15 gen_since_bang=1 explosions=13 white=3530 red=3533 act_total=9.69% act_w=4.56% act_r=5.13% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=16 gen_since_bang=1 explosions=14 white=3608 red=3512 act_total=9.75% act_w=4.81% act_r=4.94% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=17 gen_since_bang=1 explosions=15 white=3523 red=3502 act_total=9.83% act_w=4.91% act_r=4.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=18 gen_since_bang=1 explosions=16 white=3518 red=3433 act_total=9.57% act_w=4.84% act_r=4.73% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:31] BIG_BANG | gen=19 gen_since_bang=1 explosions=17 white=3475 red=3479 act_total=9.49% act_w=4.86% act_r=4.63% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=20 gen_since_bang=1 explosions=18 white=3424 red=3337 act_total=9.55% act_w=4.83% act_r=4.73% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=21 gen_since_bang=1 explosions=19 white=3415 red=3366 act_total=9.20% act_w=4.72% act_r=4.47% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=22 gen_since_bang=1 explosions=20 white=3327 red=3372 act_total=9.12% act_w=4.61% act_r=4.51% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=23 gen_since_bang=1 explosions=21 white=3272 red=3332 act_total=9.13% act_w=4.48% act_r=4.65% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=24 gen_since_bang=1 explosions=22 white=3176 red=3352 act_total=9.08% act_w=4.54% act_r=4.54% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=25 gen_since_bang=1 explosions=23 white=3115 red=3390 act_total=8.80% act_w=4.29% act_r=4.51% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=26 gen_since_bang=1 explosions=24 white=3147 red=3314 act_total=8.75% act_w=4.11% act_r=4.64% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=27 gen_since_bang=1 explosions=25 white=3067 red=3290 act_total=8.64% act_w=4.24% act_r=4.40% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=28 gen_since_bang=1 explosions=26 white=3083 red=3251 act_total=8.64% act_w=4.10% act_r=4.54% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=29 gen_since_bang=1 explosions=27 white=3095 red=3236 act_total=8.59% act_w=4.08% act_r=4.51% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=30 gen_since_bang=1 explosions=28 white=3054 red=3194 act_total=8.61% act_w=4.15% act_r=4.47% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=31 gen_since_bang=1 explosions=29 white=3018 red=3071 act_total=8.52% act_w=4.05% act_r=4.47% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=32 gen_since_bang=1 explosions=30 white=3002 red=3069 act_total=8.01% act_w=3.94% act_r=4.07% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:32] BIG_BANG | gen=33 gen_since_bang=1 explosions=31 white=3015 red=3005 act_total=8.06% act_w=3.94% act_r=4.13% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=34 gen_since_bang=1 explosions=32 white=2997 red=2953 act_total=7.87% act_w=3.96% act_r=3.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=35 gen_since_bang=1 explosions=33 white=3024 red=2990 act_total=7.87% act_w=3.94% act_r=3.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=36 gen_since_bang=1 explosions=34 white=2918 red=2923 act_total=7.85% act_w=3.94% act_r=3.91% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=37 gen_since_bang=1 explosions=35 white=3004 red=2884 act_total=7.54% act_w=3.81% act_r=3.74% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=38 gen_since_bang=1 explosions=36 white=2885 red=2908 act_total=7.86% act_w=4.00% act_r=3.86% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=39 gen_since_bang=1 explosions=37 white=2955 red=2824 act_total=7.64% act_w=3.73% act_r=3.91% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=40 gen_since_bang=1 explosions=38 white=2864 red=2810 act_total=7.75% act_w=3.90% act_r=3.85% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=41 gen_since_bang=1 explosions=39 white=2769 red=2743 act_total=7.65% act_w=3.74% act_r=3.90% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=42 gen_since_bang=1 explosions=40 white=2787 red=2764 act_total=7.33% act_w=3.67% act_r=3.67% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=43 gen_since_bang=1 explosions=41 white=2691 red=2676 act_total=7.32% act_w=3.63% act_r=3.69% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=44 gen_since_bang=1 explosions=42 white=2652 red=2707 act_total=7.10% act_w=3.52% act_r=3.57% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=45 gen_since_bang=1 explosions=43 white=2571 red=2666 act_total=6.81% act_w=3.33% act_r=3.47% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=46 gen_since_bang=1 explosions=44 white=2562 red=2695 act_total=6.68% act_w=3.27% act_r=3.41% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:33] BIG_BANG | gen=47 gen_since_bang=1 explosions=45 white=2540 red=2695 act_total=6.61% act_w=3.12% act_r=3.49% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=48 gen_since_bang=1 explosions=46 white=2510 red=2672 act_total=6.75% act_w=3.24% act_r=3.50% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=49 gen_since_bang=1 explosions=47 white=2465 red=2799 act_total=6.46% act_w=3.03% act_r=3.43% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=50 gen_since_bang=1 explosions=48 white=2416 red=2678 act_total=6.65% act_w=3.00% act_r=3.65% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=51 gen_since_bang=1 explosions=49 white=2427 red=2790 act_total=6.41% act_w=2.96% act_r=3.44% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=52 gen_since_bang=1 explosions=50 white=2435 red=2694 act_total=6.58% act_w=2.93% act_r=3.66% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=53 gen_since_bang=1 explosions=51 white=2443 red=2732 act_total=6.39% act_w=3.04% act_r=3.35% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=54 gen_since_bang=1 explosions=52 white=2468 red=2738 act_total=6.51% act_w=3.06% act_r=3.44% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=55 gen_since_bang=1 explosions=53 white=2350 red=2658 act_total=6.64% act_w=3.13% act_r=3.51% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=56 gen_since_bang=1 explosions=54 white=2370 red=2688 act_total=6.17% act_w=2.83% act_r=3.33% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=57 gen_since_bang=1 explosions=55 white=2325 red=2640 act_total=6.52% act_w=3.00% act_r=3.53% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=58 gen_since_bang=1 explosions=56 white=2378 red=2634 act_total=6.17% act_w=2.73% act_r=3.43% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=59 gen_since_bang=1 explosions=57 white=2313 red=2569 act_total=6.19% act_w=2.82% act_r=3.36% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=60 gen_since_bang=1 explosions=58 white=2403 red=2503 act_total=5.96% act_w=2.66% act_r=3.30% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=61 gen_since_bang=1 explosions=59 white=2384 red=2430 act_total=5.99% act_w=2.80% act_r=3.19% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:34] BIG_BANG | gen=62 gen_since_bang=1 explosions=60 white=2420 red=2475 act_total=5.85% act_w=2.84% act_r=3.02% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=63 gen_since_bang=1 explosions=61 white=2442 red=2499 act_total=5.83% act_w=2.87% act_r=2.96% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=64 gen_since_bang=1 explosions=62 white=2460 red=2420 act_total=6.00% act_w=2.99% act_r=3.01% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=65 gen_since_bang=1 explosions=63 white=2427 red=2473 act_total=6.09% act_w=3.08% act_r=3.02% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=66 gen_since_bang=1 explosions=64 white=2400 red=2489 act_total=6.12% act_w=3.01% act_r=3.12% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=67 gen_since_bang=1 explosions=65 white=2435 red=2539 act_total=5.95% act_w=2.92% act_r=3.03% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=68 gen_since_bang=1 explosions=66 white=2456 red=2521 act_total=6.18% act_w=2.97% act_r=3.21% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=69 gen_since_bang=1 explosions=67 white=2478 red=2591 act_total=6.25% act_w=3.05% act_r=3.20% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=70 gen_since_bang=1 explosions=68 white=2429 red=2533 act_total=6.37% act_w=3.10% act_r=3.27% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=71 gen_since_bang=1 explosions=69 white=2464 red=2598 act_total=6.16% act_w=2.96% act_r=3.19% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=72 gen_since_bang=1 explosions=70 white=2488 red=2604 act_total=6.27% act_w=2.93% act_r=3.35% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=73 gen_since_bang=1 explosions=71 white=2451 red=2619 act_total=6.44% act_w=3.13% act_r=3.31% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=74 gen_since_bang=1 explosions=72 white=2450 red=2520 act_total=6.41% act_w=3.06% act_r=3.35% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=75 gen_since_bang=1 explosions=73 white=2413 red=2578 act_total=6.40% act_w=3.26% act_r=3.14% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=76 gen_since_bang=1 explosions=74 white=2354 red=2561 act_total=6.57% act_w=3.29% act_r=3.27% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:35] BIG_BANG | gen=77 gen_since_bang=1 explosions=75 white=2304 red=2515 act_total=6.21% act_w=2.99% act_r=3.22% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=78 gen_since_bang=1 explosions=76 white=2306 red=2481 act_total=5.91% act_w=2.83% act_r=3.08% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=79 gen_since_bang=1 explosions=77 white=2254 red=2455 act_total=6.10% act_w=2.92% act_r=3.18% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=80 gen_since_bang=1 explosions=78 white=2293 red=2443 act_total=5.82% act_w=2.79% act_r=3.04% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=81 gen_since_bang=1 explosions=79 white=2270 red=2488 act_total=6.07% act_w=2.97% act_r=3.10% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=82 gen_since_bang=1 explosions=80 white=2244 red=2488 act_total=5.94% act_w=2.86% act_r=3.08% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=83 gen_since_bang=1 explosions=81 white=2202 red=2525 act_total=5.88% act_w=2.76% act_r=3.12% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=84 gen_since_bang=1 explosions=82 white=2184 red=2555 act_total=5.89% act_w=2.72% act_r=3.17% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=85 gen_since_bang=1 explosions=83 white=2158 red=2538 act_total=5.95% act_w=2.69% act_r=3.26% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=86 gen_since_bang=1 explosions=84 white=2170 red=2562 act_total=5.91% act_w=2.57% act_r=3.34% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=87 gen_since_bang=1 explosions=85 white=2204 red=2580 act_total=6.00% act_w=2.72% act_r=3.28% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=88 gen_since_bang=1 explosions=86 white=2226 red=2548 act_total=6.11% act_w=2.77% act_r=3.33% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=89 gen_since_bang=1 explosions=87 white=2308 red=2601 act_total=6.02% act_w=2.73% act_r=3.29% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=90 gen_since_bang=1 explosions=88 white=2254 red=2560 act_total=6.32% act_w=2.94% act_r=3.38% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:36] BIG_BANG | gen=91 gen_since_bang=1 explosions=89 white=2291 red=2533 act_total=6.15% act_w=2.88% act_r=3.28% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=92 gen_since_bang=1 explosions=90 white=2318 red=2543 act_total=6.07% act_w=2.89% act_r=3.18% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=93 gen_since_bang=1 explosions=91 white=2335 red=2526 act_total=6.00% act_w=2.86% act_r=3.14% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=94 gen_since_bang=1 explosions=92 white=2325 red=2521 act_total=5.95% act_w=2.81% act_r=3.14% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=95 gen_since_bang=1 explosions=93 white=2284 red=2431 act_total=5.96% act_w=2.80% act_r=3.16% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=96 gen_since_bang=1 explosions=94 white=2272 red=2440 act_total=5.80% act_w=2.77% act_r=3.03% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=97 gen_since_bang=1 explosions=95 white=2200 red=2403 act_total=5.89% act_w=2.81% act_r=3.08% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=98 gen_since_bang=1 explosions=96 white=2235 red=2446 act_total=5.63% act_w=2.67% act_r=2.96% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=99 gen_since_bang=1 explosions=97 white=2123 red=2438 act_total=5.98% act_w=2.84% act_r=3.13% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=100 gen_since_bang=1 explosions=98 white=2052 red=2413 act_total=5.88% act_w=2.71% act_r=3.17% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=101 gen_since_bang=1 explosions=99 white=2041 red=2454 act_total=5.53% act_w=2.48% act_r=3.05% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=102 gen_since_bang=1 explosions=100 white=2035 red=2412 act_total=5.50% act_w=2.46% act_r=3.04% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=103 gen_since_bang=1 explosions=101 white=2000 red=2436 act_total=5.38% act_w=2.37% act_r=3.01% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=104 gen_since_bang=1 explosions=102 white=1973 red=2448 act_total=5.46% act_w=2.37% act_r=3.10% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=105 gen_since_bang=1 explosions=103 white=1990 red=2487 act_total=5.33% act_w=2.31% act_r=3.02% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:37] BIG_BANG | gen=106 gen_since_bang=1 explosions=104 white=1941 red=2448 act_total=5.51% act_w=2.35% act_r=3.16% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=107 gen_since_bang=1 explosions=105 white=1930 red=2426 act_total=5.30% act_w=2.25% act_r=3.05% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=108 gen_since_bang=1 explosions=106 white=1953 red=2353 act_total=5.45% act_w=2.30% act_r=3.15% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=109 gen_since_bang=1 explosions=107 white=1924 red=2360 act_total=5.30% act_w=2.31% act_r=2.99% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=110 gen_since_bang=1 explosions=108 white=1970 red=2329 act_total=5.26% act_w=2.27% act_r=2.99% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=111 gen_since_bang=1 explosions=109 white=1996 red=2342 act_total=5.37% act_w=2.37% act_r=3.00% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=112 gen_since_bang=1 explosions=110 white=2036 red=2308 act_total=5.17% act_w=2.38% act_r=2.80% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=113 gen_since_bang=1 explosions=111 white=1932 red=2262 act_total=5.46% act_w=2.56% act_r=2.90% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=114 gen_since_bang=1 explosions=112 white=1912 red=2298 act_total=5.05% act_w=2.30% act_r=2.74% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=115 gen_since_bang=1 explosions=113 white=1917 red=2234 act_total=5.20% act_w=2.31% act_r=2.88% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=116 gen_since_bang=1 explosions=114 white=1951 red=2289 act_total=4.95% act_w=2.21% act_r=2.74% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=117 gen_since_bang=1 explosions=115 white=1963 red=2217 act_total=5.04% act_w=2.24% act_r=2.79% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=118 gen_since_bang=1 explosions=116 white=2020 red=2239 act_total=5.08% act_w=2.38% act_r=2.70% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=119 gen_since_bang=1 explosions=117 white=2003 red=2233 act_total=5.24% act_w=2.46% act_r=2.78% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=120 gen_since_bang=1 explosions=118 white=2002 red=2230 act_total=4.96% act_w=2.33% act_r=2.63% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:38] BIG_BANG | gen=121 gen_since_bang=1 explosions=119 white=2049 red=2255 act_total=5.15% act_w=2.51% act_r=2.64% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=122 gen_since_bang=1 explosions=120 white=1975 red=2229 act_total=5.25% act_w=2.50% act_r=2.75% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=123 gen_since_bang=1 explosions=121 white=1989 red=2188 act_total=5.27% act_w=2.45% act_r=2.83% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=124 gen_since_bang=1 explosions=122 white=2009 red=2129 act_total=5.27% act_w=2.53% act_r=2.74% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=125 gen_since_bang=1 explosions=123 white=1990 red=2096 act_total=5.03% act_w=2.44% act_r=2.58% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=126 gen_since_bang=1 explosions=124 white=2053 red=2091 act_total=4.98% act_w=2.46% act_r=2.53% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=127 gen_since_bang=1 explosions=125 white=2020 red=2118 act_total=4.82% act_w=2.42% act_r=2.40% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=128 gen_since_bang=1 explosions=126 white=2092 red=2097 act_total=4.99% act_w=2.38% act_r=2.61% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=129 gen_since_bang=1 explosions=127 white=2052 red=2130 act_total=5.00% act_w=2.53% act_r=2.46% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=130 gen_since_bang=1 explosions=128 white=2068 red=2066 act_total=5.06% act_w=2.49% act_r=2.57% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=131 gen_since_bang=1 explosions=129 white=2035 red=2184 act_total=4.99% act_w=2.55% act_r=2.44% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=132 gen_since_bang=1 explosions=130 white=2014 red=2176 act_total=5.07% act_w=2.42% act_r=2.65% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=133 gen_since_bang=1 explosions=131 white=2020 red=2219 act_total=4.95% act_w=2.31% act_r=2.64% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=134 gen_since_bang=1 explosions=132 white=2044 red=2210 act_total=5.14% act_w=2.43% act_r=2.71% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:39] BIG_BANG | gen=135 gen_since_bang=1 explosions=133 white=2027 red=2225 act_total=5.15% act_w=2.49% act_r=2.66% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=136 gen_since_bang=1 explosions=134 white=2034 red=2247 act_total=5.04% act_w=2.41% act_r=2.63% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=137 gen_since_bang=1 explosions=135 white=2048 red=2260 act_total=5.21% act_w=2.49% act_r=2.72% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=138 gen_since_bang=1 explosions=136 white=2038 red=2221 act_total=5.27% act_w=2.49% act_r=2.78% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=139 gen_since_bang=1 explosions=137 white=2050 red=2194 act_total=5.17% act_w=2.45% act_r=2.72% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=140 gen_since_bang=1 explosions=138 white=2035 red=2177 act_total=5.18% act_w=2.50% act_r=2.67% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=141 gen_since_bang=1 explosions=139 white=1998 red=2197 act_total=5.12% act_w=2.51% act_r=2.60% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=142 gen_since_bang=1 explosions=140 white=2009 red=2203 act_total=5.13% act_w=2.47% act_r=2.66% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=143 gen_since_bang=1 explosions=141 white=1959 red=2186 act_total=5.05% act_w=2.44% act_r=2.61% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=144 gen_since_bang=1 explosions=142 white=2004 red=2151 act_total=4.97% act_w=2.36% act_r=2.61% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=145 gen_since_bang=1 explosions=143 white=1954 red=2242 act_total=4.95% act_w=2.42% act_r=2.53% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=146 gen_since_bang=1 explosions=144 white=1991 red=2157 act_total=4.99% act_w=2.34% act_r=2.65% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=147 gen_since_bang=1 explosions=145 white=1984 red=2185 act_total=4.91% act_w=2.38% act_r=2.52% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=148 gen_since_bang=1 explosions=146 white=1985 red=2141 act_total=4.86% act_w=2.26% act_r=2.60% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=149 gen_since_bang=1 explosions=147 white=2011 red=2133 act_total=4.83% act_w=2.32% act_r=2.50% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:40] BIG_BANG | gen=150 gen_since_bang=1 explosions=148 white=2031 red=2070 act_total=4.96% act_w=2.40% act_r=2.56% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=151 gen_since_bang=1 explosions=149 white=2035 red=2080 act_total=4.91% act_w=2.40% act_r=2.51% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=152 gen_since_bang=1 explosions=150 white=2004 red=2089 act_total=4.95% act_w=2.43% act_r=2.51% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=153 gen_since_bang=1 explosions=151 white=1965 red=2117 act_total=4.92% act_w=2.44% act_r=2.47% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=154 gen_since_bang=1 explosions=152 white=1950 red=2132 act_total=4.92% act_w=2.35% act_r=2.57% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=155 gen_since_bang=1 explosions=153 white=1983 red=2074 act_total=4.78% act_w=2.26% act_r=2.52% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=156 gen_since_bang=1 explosions=154 white=2023 red=2050 act_total=4.78% act_w=2.35% act_r=2.43% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=157 gen_since_bang=1 explosions=155 white=2052 red=2075 act_total=4.71% act_w=2.38% act_r=2.33% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=158 gen_since_bang=1 explosions=156 white=2038 red=2011 act_total=4.72% act_w=2.37% act_r=2.35% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=159 gen_since_bang=1 explosions=157 white=2017 red=2007 act_total=4.75% act_w=2.39% act_r=2.36% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=160 gen_since_bang=1 explosions=158 white=1980 red=2017 act_total=4.63% act_w=2.33% act_r=2.31% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=161 gen_since_bang=1 explosions=159 white=2003 red=1965 act_total=4.69% act_w=2.36% act_r=2.33% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=162 gen_since_bang=1 explosions=160 white=2068 red=1976 act_total=4.49% act_w=2.30% act_r=2.19% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=163 gen_since_bang=1 explosions=161 white=2076 red=1976 act_total=4.72% act_w=2.50% act_r=2.23% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=164 gen_since_bang=1 explosions=162 white=2077 red=2023 act_total=4.74% act_w=2.46% act_r=2.28% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:41] BIG_BANG | gen=165 gen_since_bang=1 explosions=163 white=2076 red=1969 act_total=4.75% act_w=2.44% act_r=2.31% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=166 gen_since_bang=1 explosions=164 white=1994 red=1952 act_total=4.76% act_w=2.52% act_r=2.24% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=167 gen_since_bang=1 explosions=165 white=1977 red=1965 act_total=4.48% act_w=2.30% act_r=2.17% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=168 gen_since_bang=1 explosions=166 white=1969 red=1914 act_total=4.49% act_w=2.34% act_r=2.15% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=169 gen_since_bang=1 explosions=167 white=1946 red=1882 act_total=4.46% act_w=2.23% act_r=2.23% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=170 gen_since_bang=1 explosions=168 white=1954 red=1905 act_total=4.40% act_w=2.29% act_r=2.11% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=171 gen_since_bang=1 explosions=169 white=1968 red=1912 act_total=4.44% act_w=2.33% act_r=2.11% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=172 gen_since_bang=1 explosions=170 white=1925 red=1890 act_total=4.52% act_w=2.28% act_r=2.23% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=173 gen_since_bang=1 explosions=171 white=1911 red=1906 act_total=4.37% act_w=2.28% act_r=2.09% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=174 gen_since_bang=1 explosions=172 white=1963 red=1919 act_total=4.37% act_w=2.20% act_r=2.17% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=175 gen_since_bang=1 explosions=173 white=1979 red=1873 act_total=4.33% act_w=2.22% act_r=2.11% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=176 gen_since_bang=1 explosions=174 white=1906 red=1928 act_total=4.42% act_w=2.35% act_r=2.07% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=177 gen_since_bang=1 explosions=175 white=1885 red=1951 act_total=4.46% act_w=2.25% act_r=2.21% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=178 gen_since_bang=1 explosions=176 white=1865 red=1919 act_total=4.58% act_w=2.26% act_r=2.33% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:42] BIG_BANG | gen=179 gen_since_bang=1 explosions=177 white=1846 red=1889 act_total=4.23% act_w=2.10% act_r=2.13% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=180 gen_since_bang=1 explosions=178 white=1846 red=1854 act_total=4.40% act_w=2.16% act_r=2.23% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=181 gen_since_bang=1 explosions=179 white=1846 red=1914 act_total=4.24% act_w=2.06% act_r=2.18% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=182 gen_since_bang=1 explosions=180 white=1816 red=1910 act_total=4.31% act_w=2.06% act_r=2.25% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=183 gen_since_bang=1 explosions=181 white=1825 red=1870 act_total=4.28% act_w=2.03% act_r=2.24% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=184 gen_since_bang=1 explosions=182 white=1840 red=1833 act_total=4.24% act_w=2.03% act_r=2.21% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=185 gen_since_bang=1 explosions=183 white=1869 red=1871 act_total=4.20% act_w=2.08% act_r=2.12% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=186 gen_since_bang=1 explosions=184 white=1804 red=1851 act_total=4.22% act_w=2.14% act_r=2.08% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=187 gen_since_bang=1 explosions=185 white=1768 red=1877 act_total=4.17% act_w=2.08% act_r=2.09% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=188 gen_since_bang=1 explosions=186 white=1786 red=1880 act_total=4.03% act_w=1.92% act_r=2.11% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=189 gen_since_bang=1 explosions=187 white=1741 red=1840 act_total=4.29% act_w=2.03% act_r=2.26% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=190 gen_since_bang=1 explosions=188 white=1782 red=1881 act_total=4.04% act_w=1.94% act_r=2.10% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=191 gen_since_bang=1 explosions=189 white=1774 red=1885 act_total=4.20% act_w=1.95% act_r=2.25% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=192 gen_since_bang=1 explosions=190 white=1813 red=1875 act_total=4.20% act_w=1.88% act_r=2.32% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=193 gen_since_bang=1 explosions=191 white=1807 red=1884 act_total=4.29% act_w=1.92% act_r=2.38% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:43] BIG_BANG | gen=194 gen_since_bang=1 explosions=192 white=1789 red=1928 act_total=4.22% act_w=2.02% act_r=2.20% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=195 gen_since_bang=1 explosions=193 white=1781 red=1900 act_total=4.31% act_w=2.00% act_r=2.31% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=196 gen_since_bang=1 explosions=194 white=1788 red=1940 act_total=4.18% act_w=1.89% act_r=2.30% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=197 gen_since_bang=1 explosions=195 white=1819 red=1871 act_total=4.16% act_w=1.92% act_r=2.24% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=198 gen_since_bang=1 explosions=196 white=1832 red=1896 act_total=4.15% act_w=1.99% act_r=2.15% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=199 gen_since_bang=1 explosions=197 white=1843 red=1901 act_total=4.24% act_w=1.96% act_r=2.28% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=200 gen_since_bang=1 explosions=198 white=1854 red=1912 act_total=4.25% act_w=2.01% act_r=2.24% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=201 gen_since_bang=1 explosions=199 white=1859 red=1873 act_total=4.38% act_w=2.04% act_r=2.34% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=202 gen_since_bang=1 explosions=200 white=1837 red=1858 act_total=4.26% act_w=2.03% act_r=2.23% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=203 gen_since_bang=1 explosions=201 white=1830 red=1952 act_total=4.29% act_w=2.08% act_r=2.21% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=204 gen_since_bang=1 explosions=202 white=1848 red=1871 act_total=4.43% act_w=2.09% act_r=2.33% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=205 gen_since_bang=1 explosions=203 white=1838 red=1898 act_total=4.30% act_w=2.11% act_r=2.20% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=206 gen_since_bang=1 explosions=204 white=1791 red=1855 act_total=4.32% act_w=2.06% act_r=2.26% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=207 gen_since_bang=1 explosions=205 white=1811 red=1813 act_total=4.10% act_w=1.96% act_r=2.14% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=208 gen_since_bang=1 explosions=206 white=1798 red=1751 act_total=4.14% act_w=1.99% act_r=2.15% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:44] BIG_BANG | gen=209 gen_since_bang=1 explosions=207 white=1864 red=1736 act_total=3.92% act_w=1.94% act_r=1.99% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=210 gen_since_bang=1 explosions=208 white=1846 red=1701 act_total=4.04% act_w=2.07% act_r=1.96% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=211 gen_since_bang=1 explosions=209 white=1837 red=1698 act_total=3.95% act_w=2.10% act_r=1.85% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=212 gen_since_bang=1 explosions=210 white=1830 red=1701 act_total=4.04% act_w=2.16% act_r=1.88% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=213 gen_since_bang=1 explosions=211 white=1855 red=1643 act_total=3.83% act_w=1.98% act_r=1.85% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=214 gen_since_bang=1 explosions=212 white=1746 red=1679 act_total=3.85% act_w=2.06% act_r=1.79% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=215 gen_since_bang=1 explosions=213 white=1722 red=1681 act_total=3.78% act_w=1.94% act_r=1.84% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=216 gen_since_bang=1 explosions=214 white=1697 red=1740 act_total=3.74% act_w=1.92% act_r=1.82% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=217 gen_since_bang=1 explosions=215 white=1717 red=1699 act_total=3.92% act_w=1.89% act_r=2.03% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=218 gen_since_bang=1 explosions=216 white=1731 red=1700 act_total=3.90% act_w=1.84% act_r=2.06% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=219 gen_since_bang=1 explosions=217 white=1737 red=1728 act_total=3.83% act_w=1.91% act_r=1.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=220 gen_since_bang=1 explosions=218 white=1762 red=1693 act_total=3.95% act_w=1.91% act_r=2.04% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=221 gen_since_bang=1 explosions=219 white=1737 red=1690 act_total=3.91% act_w=1.88% act_r=2.04% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=222 gen_since_bang=1 explosions=220 white=1750 red=1689 act_total=3.75% act_w=1.88% act_r=1.87% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:45] BIG_BANG | gen=223 gen_since_bang=1 explosions=221 white=1820 red=1643 act_total=3.74% act_w=1.84% act_r=1.90% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=224 gen_since_bang=1 explosions=222 white=1784 red=1612 act_total=3.85% act_w=1.93% act_r=1.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=225 gen_since_bang=1 explosions=223 white=1847 red=1634 act_total=3.78% act_w=1.94% act_r=1.84% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=226 gen_since_bang=1 explosions=224 white=1775 red=1638 act_total=3.91% act_w=2.09% act_r=1.83% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=227 gen_since_bang=1 explosions=225 white=1843 red=1643 act_total=3.73% act_w=1.91% act_r=1.82% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=228 gen_since_bang=1 explosions=226 white=1786 red=1646 act_total=3.85% act_w=2.09% act_r=1.76% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=229 gen_since_bang=1 explosions=227 white=1800 red=1723 act_total=3.70% act_w=1.96% act_r=1.74% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=230 gen_since_bang=1 explosions=228 white=1745 red=1677 act_total=3.82% act_w=1.91% act_r=1.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=231 gen_since_bang=1 explosions=229 white=1786 red=1697 act_total=3.74% act_w=1.92% act_r=1.83% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=232 gen_since_bang=1 explosions=230 white=1683 red=1666 act_total=3.89% act_w=1.98% act_r=1.91% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=233 gen_since_bang=1 explosions=231 white=1725 red=1733 act_total=3.63% act_w=1.84% act_r=1.79% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=234 gen_since_bang=1 explosions=232 white=1646 red=1721 act_total=3.85% act_w=1.92% act_r=1.93% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=235 gen_since_bang=1 explosions=233 white=1686 red=1726 act_total=3.67% act_w=1.78% act_r=1.90% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=236 gen_since_bang=1 explosions=234 white=1719 red=1749 act_total=3.80% act_w=1.84% act_r=1.96% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=237 gen_since_bang=1 explosions=235 white=1711 red=1764 act_total=3.88% act_w=1.91% act_r=1.97% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:46] BIG_BANG | gen=238 gen_since_bang=1 explosions=236 white=1752 red=1710 act_total=3.86% act_w=1.93% act_r=1.93% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=239 gen_since_bang=1 explosions=237 white=1651 red=1720 act_total=3.95% act_w=2.02% act_r=1.93% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=240 gen_since_bang=1 explosions=238 white=1755 red=1681 act_total=3.83% act_w=1.93% act_r=1.91% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=241 gen_since_bang=1 explosions=239 white=1664 red=1634 act_total=3.86% act_w=1.95% act_r=1.91% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=242 gen_since_bang=1 explosions=240 white=1707 red=1637 act_total=3.70% act_w=1.88% act_r=1.82% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=243 gen_since_bang=1 explosions=241 white=1687 red=1682 act_total=3.69% act_w=1.96% act_r=1.74% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=244 gen_since_bang=1 explosions=242 white=1642 red=1698 act_total=3.61% act_w=1.83% act_r=1.78% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=245 gen_since_bang=1 explosions=243 white=1650 red=1686 act_total=3.60% act_w=1.79% act_r=1.81% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=246 gen_since_bang=1 explosions=244 white=1664 red=1732 act_total=3.63% act_w=1.74% act_r=1.88% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=247 gen_since_bang=1 explosions=245 white=1600 red=1724 act_total=3.77% act_w=1.84% act_r=1.93% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=248 gen_since_bang=1 explosions=246 white=1640 red=1754 act_total=3.67% act_w=1.75% act_r=1.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=249 gen_since_bang=1 explosions=247 white=1624 red=1769 act_total=3.79% act_w=1.77% act_r=2.02% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=250 gen_since_bang=1 explosions=248 white=1660 red=1775 act_total=3.82% act_w=1.75% act_r=2.07% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=251 gen_since_bang=1 explosions=249 white=1708 red=1725 act_total=3.88% act_w=1.85% act_r=2.03% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=252 gen_since_bang=1 explosions=250 white=1631 red=1713 act_total=3.94% act_w=1.96% act_r=1.98% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:47] BIG_BANG | gen=253 gen_since_bang=1 explosions=251 white=1606 red=1740 act_total=3.75% act_w=1.80% act_r=1.94% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=254 gen_since_bang=1 explosions=252 white=1652 red=1743 act_total=3.72% act_w=1.80% act_r=1.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=255 gen_since_bang=1 explosions=253 white=1660 red=1776 act_total=3.75% act_w=1.79% act_r=1.96% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=256 gen_since_bang=1 explosions=254 white=1690 red=1721 act_total=3.79% act_w=1.87% act_r=1.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=257 gen_since_bang=1 explosions=255 white=1673 red=1736 act_total=3.84% act_w=1.91% act_r=1.93% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=258 gen_since_bang=1 explosions=256 white=1627 red=1709 act_total=3.88% act_w=1.95% act_r=1.93% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=259 gen_since_bang=1 explosions=257 white=1664 red=1754 act_total=3.83% act_w=1.86% act_r=1.96% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=260 gen_since_bang=1 explosions=258 white=1626 red=1735 act_total=3.87% act_w=1.83% act_r=2.04% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=261 gen_since_bang=1 explosions=259 white=1651 red=1738 act_total=3.74% act_w=1.81% act_r=1.93% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=262 gen_since_bang=1 explosions=260 white=1602 red=1764 act_total=3.74% act_w=1.79% act_r=1.95% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=263 gen_since_bang=1 explosions=261 white=1658 red=1764 act_total=3.65% act_w=1.77% act_r=1.88% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=264 gen_since_bang=1 explosions=262 white=1652 red=1743 act_total=3.81% act_w=1.87% act_r=1.94% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=265 gen_since_bang=1 explosions=263 white=1654 red=1788 act_total=3.79% act_w=1.87% act_r=1.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=266 gen_since_bang=1 explosions=264 white=1613 red=1754 act_total=3.85% act_w=1.83% act_r=2.02% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:48] BIG_BANG | gen=267 gen_since_bang=1 explosions=265 white=1556 red=1780 act_total=3.64% act_w=1.72% act_r=1.92% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=268 gen_since_bang=1 explosions=266 white=1583 red=1790 act_total=3.65% act_w=1.69% act_r=1.97% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=269 gen_since_bang=1 explosions=267 white=1557 red=1801 act_total=3.64% act_w=1.69% act_r=1.94% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=270 gen_since_bang=1 explosions=268 white=1538 red=1810 act_total=3.64% act_w=1.70% act_r=1.94% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=271 gen_since_bang=1 explosions=269 white=1555 red=1786 act_total=3.75% act_w=1.74% act_r=2.02% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=272 gen_since_bang=1 explosions=270 white=1520 red=1784 act_total=3.70% act_w=1.65% act_r=2.06% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=273 gen_since_bang=1 explosions=271 white=1519 red=1824 act_total=3.62% act_w=1.68% act_r=1.94% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=274 gen_since_bang=1 explosions=272 white=1492 red=1743 act_total=3.53% act_w=1.56% act_r=1.98% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=275 gen_since_bang=1 explosions=273 white=1508 red=1768 act_total=3.46% act_w=1.60% act_r=1.86% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=276 gen_since_bang=1 explosions=274 white=1514 red=1760 act_total=3.50% act_w=1.60% act_r=1.90% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=277 gen_since_bang=1 explosions=275 white=1484 red=1721 act_total=3.49% act_w=1.56% act_r=1.93% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=278 gen_since_bang=1 explosions=276 white=1519 red=1704 act_total=3.32% act_w=1.51% act_r=1.81% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=279 gen_since_bang=1 explosions=277 white=1530 red=1651 act_total=3.42% act_w=1.62% act_r=1.80% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=280 gen_since_bang=1 explosions=278 white=1560 red=1644 act_total=3.53% act_w=1.69% act_r=1.84% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=281 gen_since_bang=1 explosions=279 white=1524 red=1625 act_total=3.46% act_w=1.70% act_r=1.76% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:49] BIG_BANG | gen=282 gen_since_bang=1 explosions=280 white=1558 red=1556 act_total=3.47% act_w=1.75% act_r=1.71% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=283 gen_since_bang=1 explosions=281 white=1522 red=1534 act_total=3.35% act_w=1.73% act_r=1.62% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=284 gen_since_bang=1 explosions=282 white=1509 red=1493 act_total=3.25% act_w=1.72% act_r=1.53% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=285 gen_since_bang=1 explosions=283 white=1459 red=1480 act_total=3.21% act_w=1.64% act_r=1.57% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=286 gen_since_bang=1 explosions=284 white=1459 red=1479 act_total=3.10% act_w=1.60% act_r=1.50% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=287 gen_since_bang=1 explosions=285 white=1481 red=1426 act_total=3.22% act_w=1.63% act_r=1.59% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=288 gen_since_bang=1 explosions=286 white=1521 red=1493 act_total=3.12% act_w=1.62% act_r=1.50% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=289 gen_since_bang=1 explosions=287 white=1475 red=1442 act_total=3.28% act_w=1.66% act_r=1.62% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=290 gen_since_bang=1 explosions=288 white=1467 red=1475 act_total=3.15% act_w=1.67% act_r=1.48% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=291 gen_since_bang=1 explosions=289 white=1417 red=1473 act_total=3.18% act_w=1.68% act_r=1.50% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=292 gen_since_bang=1 explosions=290 white=1444 red=1497 act_total=2.89% act_w=1.49% act_r=1.40% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=293 gen_since_bang=1 explosions=291 white=1409 red=1503 act_total=2.96% act_w=1.47% act_r=1.49% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=294 gen_since_bang=1 explosions=292 white=1393 red=1541 act_total=2.97% act_w=1.47% act_r=1.50% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=295 gen_since_bang=1 explosions=293 white=1379 red=1514 act_total=3.01% act_w=1.42% act_r=1.59% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:50] BIG_BANG | gen=296 gen_since_bang=1 explosions=294 white=1371 red=1513 act_total=2.97% act_w=1.38% act_r=1.58% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=297 gen_since_bang=1 explosions=295 white=1384 red=1524 act_total=2.97% act_w=1.34% act_r=1.62% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=298 gen_since_bang=1 explosions=296 white=1402 red=1513 act_total=3.03% act_w=1.42% act_r=1.62% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=299 gen_since_bang=1 explosions=297 white=1419 red=1496 act_total=3.09% act_w=1.43% act_r=1.66% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=300 gen_since_bang=1 explosions=298 white=1414 red=1493 act_total=3.06% act_w=1.54% act_r=1.53% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=301 gen_since_bang=1 explosions=299 white=1373 red=1434 act_total=3.16% act_w=1.51% act_r=1.65% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=302 gen_since_bang=1 explosions=300 white=1367 red=1459 act_total=2.86% act_w=1.46% act_r=1.41% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=303 gen_since_bang=1 explosions=301 white=1371 red=1418 act_total=2.95% act_w=1.47% act_r=1.48% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=304 gen_since_bang=1 explosions=302 white=1379 red=1426 act_total=2.79% act_w=1.42% act_r=1.37% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=305 gen_since_bang=1 explosions=303 white=1366 red=1394 act_total=2.82% act_w=1.38% act_r=1.44% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=306 gen_since_bang=1 explosions=304 white=1340 red=1421 act_total=2.87% act_w=1.47% act_r=1.41% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=307 gen_since_bang=1 explosions=305 white=1343 red=1393 act_total=2.79% act_w=1.38% act_r=1.41% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=308 gen_since_bang=1 explosions=306 white=1394 red=1418 act_total=2.75% act_w=1.38% act_r=1.37% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=309 gen_since_bang=1 explosions=307 white=1379 red=1406 act_total=2.81% act_w=1.39% act_r=1.42% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=310 gen_since_bang=1 explosions=308 white=1372 red=1463 act_total=2.79% act_w=1.42% act_r=1.37% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:51] BIG_BANG | gen=311 gen_since_bang=1 explosions=309 white=1381 red=1486 act_total=2.86% act_w=1.35% act_r=1.51% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=312 gen_since_bang=1 explosions=310 white=1352 red=1526 act_total=2.84% act_w=1.39% act_r=1.45% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=313 gen_since_bang=1 explosions=311 white=1358 red=1521 act_total=2.98% act_w=1.34% act_r=1.64% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=314 gen_since_bang=1 explosions=312 white=1352 red=1522 act_total=2.98% act_w=1.37% act_r=1.61% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=315 gen_since_bang=1 explosions=313 white=1374 red=1533 act_total=3.02% act_w=1.39% act_r=1.64% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=316 gen_since_bang=1 explosions=314 white=1368 red=1537 act_total=2.96% act_w=1.34% act_r=1.62% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=317 gen_since_bang=1 explosions=315 white=1366 red=1528 act_total=2.95% act_w=1.31% act_r=1.64% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=318 gen_since_bang=1 explosions=316 white=1378 red=1519 act_total=2.98% act_w=1.33% act_r=1.65% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=319 gen_since_bang=1 explosions=317 white=1346 red=1566 act_total=3.00% act_w=1.39% act_r=1.61% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=320 gen_since_bang=1 explosions=318 white=1333 red=1536 act_total=3.01% act_w=1.35% act_r=1.65% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=321 gen_since_bang=1 explosions=319 white=1337 red=1529 act_total=2.93% act_w=1.29% act_r=1.65% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=322 gen_since_bang=1 explosions=320 white=1352 red=1534 act_total=2.91% act_w=1.32% act_r=1.59% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=323 gen_since_bang=1 explosions=321 white=1344 red=1528 act_total=2.99% act_w=1.32% act_r=1.67% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=324 gen_since_bang=1 explosions=322 white=1309 red=1600 act_total=2.87% act_w=1.29% act_r=1.59% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=325 gen_since_bang=1 explosions=323 white=1338 red=1585 act_total=2.94% act_w=1.24% act_r=1.71% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:52] BIG_BANG | gen=326 gen_since_bang=1 explosions=324 white=1282 red=1585 act_total=3.01% act_w=1.24% act_r=1.77% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=327 gen_since_bang=1 explosions=325 white=1359 red=1579 act_total=2.99% act_w=1.19% act_r=1.80% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=328 gen_since_bang=1 explosions=326 white=1313 red=1527 act_total=3.00% act_w=1.21% act_r=1.79% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=329 gen_since_bang=1 explosions=327 white=1339 red=1473 act_total=2.93% act_w=1.26% act_r=1.67% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=330 gen_since_bang=1 explosions=328 white=1341 red=1513 act_total=2.81% act_w=1.27% act_r=1.54% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=331 gen_since_bang=1 explosions=329 white=1351 red=1523 act_total=2.90% act_w=1.32% act_r=1.58% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=332 gen_since_bang=1 explosions=330 white=1318 red=1575 act_total=2.88% act_w=1.28% act_r=1.60% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=333 gen_since_bang=1 explosions=331 white=1306 red=1501 act_total=3.03% act_w=1.23% act_r=1.80% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=334 gen_since_bang=1 explosions=332 white=1363 red=1548 act_total=2.84% act_w=1.19% act_r=1.65% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=335 gen_since_bang=1 explosions=333 white=1318 red=1484 act_total=3.07% act_w=1.27% act_r=1.80% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=336 gen_since_bang=1 explosions=334 white=1335 red=1522 act_total=2.87% act_w=1.27% act_r=1.60% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=337 gen_since_bang=1 explosions=335 white=1324 red=1420 act_total=2.96% act_w=1.31% act_r=1.65% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=338 gen_since_bang=1 explosions=336 white=1308 red=1406 act_total=2.77% act_w=1.32% act_r=1.45% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=339 gen_since_bang=1 explosions=337 white=1287 red=1372 act_total=2.74% act_w=1.23% act_r=1.51% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:53] BIG_BANG | gen=340 gen_since_bang=1 explosions=338 white=1304 red=1381 act_total=2.53% act_w=1.18% act_r=1.34% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=341 gen_since_bang=1 explosions=339 white=1242 red=1343 act_total=2.50% act_w=1.16% act_r=1.34% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=342 gen_since_bang=1 explosions=340 white=1275 red=1362 act_total=2.37% act_w=1.12% act_r=1.26% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=343 gen_since_bang=1 explosions=341 white=1256 red=1341 act_total=2.44% act_w=1.11% act_r=1.33% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=344 gen_since_bang=1 explosions=342 white=1272 red=1349 act_total=2.38% act_w=1.12% act_r=1.26% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=345 gen_since_bang=1 explosions=343 white=1280 red=1353 act_total=2.44% act_w=1.16% act_r=1.28% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=346 gen_since_bang=1 explosions=344 white=1288 red=1360 act_total=2.48% act_w=1.16% act_r=1.32% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=347 gen_since_bang=1 explosions=345 white=1277 red=1343 act_total=2.51% act_w=1.17% act_r=1.35% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=348 gen_since_bang=1 explosions=346 white=1272 red=1344 act_total=2.46% act_w=1.14% act_r=1.33% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=349 gen_since_bang=1 explosions=347 white=1307 red=1381 act_total=2.46% act_w=1.16% act_r=1.29% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=350 gen_since_bang=1 explosions=348 white=1298 red=1371 act_total=2.59% act_w=1.23% act_r=1.37% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=351 gen_since_bang=1 explosions=349 white=1310 red=1434 act_total=2.57% act_w=1.20% act_r=1.37% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=352 gen_since_bang=1 explosions=350 white=1289 red=1425 act_total=2.72% act_w=1.19% act_r=1.53% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=353 gen_since_bang=1 explosions=351 white=1280 red=1416 act_total=2.70% act_w=1.19% act_r=1.50% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=354 gen_since_bang=1 explosions=352 white=1266 red=1417 act_total=2.76% act_w=1.21% act_r=1.55% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:54] BIG_BANG | gen=355 gen_since_bang=1 explosions=353 white=1283 red=1356 act_total=2.62% act_w=1.14% act_r=1.48% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=356 gen_since_bang=1 explosions=354 white=1241 red=1335 act_total=2.62% act_w=1.23% act_r=1.39% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=357 gen_since_bang=1 explosions=355 white=1240 red=1359 act_total=2.44% act_w=1.17% act_r=1.27% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=358 gen_since_bang=1 explosions=356 white=1254 red=1345 act_total=2.41% act_w=1.11% act_r=1.30% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=359 gen_since_bang=1 explosions=357 white=1282 red=1404 act_total=2.49% act_w=1.14% act_r=1.36% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=360 gen_since_bang=1 explosions=358 white=1264 red=1368 act_total=2.60% act_w=1.12% act_r=1.48% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=361 gen_since_bang=1 explosions=359 white=1307 red=1429 act_total=2.46% act_w=1.10% act_r=1.36% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=362 gen_since_bang=1 explosions=360 white=1318 red=1391 act_total=2.68% act_w=1.18% act_r=1.50% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=363 gen_since_bang=1 explosions=361 white=1335 red=1389 act_total=2.72% act_w=1.21% act_r=1.51% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=364 gen_since_bang=1 explosions=362 white=1323 red=1407 act_total=2.66% act_w=1.29% act_r=1.37% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=365 gen_since_bang=1 explosions=363 white=1299 red=1407 act_total=2.72% act_w=1.28% act_r=1.44% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=366 gen_since_bang=1 explosions=364 white=1340 red=1408 act_total=2.55% act_w=1.18% act_r=1.38% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=367 gen_since_bang=1 explosions=365 white=1336 red=1419 act_total=2.74% act_w=1.29% act_r=1.45% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=368 gen_since_bang=1 explosions=366 white=1366 red=1364 act_total=2.75% act_w=1.26% act_r=1.49% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=369 gen_since_bang=1 explosions=367 white=1335 red=1433 act_total=2.67% act_w=1.33% act_r=1.34% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:55] BIG_BANG | gen=370 gen_since_bang=1 explosions=368 white=1364 red=1327 act_total=2.74% act_w=1.21% act_r=1.53% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=371 gen_since_bang=1 explosions=369 white=1318 red=1378 act_total=2.57% act_w=1.29% act_r=1.27% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=372 gen_since_bang=1 explosions=370 white=1342 red=1325 act_total=2.57% act_w=1.26% act_r=1.31% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=373 gen_since_bang=1 explosions=371 white=1347 red=1362 act_total=2.54% act_w=1.28% act_r=1.26% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=374 gen_since_bang=1 explosions=372 white=1325 red=1330 act_total=2.57% act_w=1.28% act_r=1.29% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=375 gen_since_bang=1 explosions=373 white=1317 red=1351 act_total=2.51% act_w=1.27% act_r=1.24% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=376 gen_since_bang=1 explosions=374 white=1308 red=1291 act_total=2.66% act_w=1.28% act_r=1.38% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=377 gen_since_bang=1 explosions=375 white=1324 red=1324 act_total=2.51% act_w=1.20% act_r=1.31% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=378 gen_since_bang=1 explosions=376 white=1317 red=1309 act_total=2.46% act_w=1.18% act_r=1.28% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=379 gen_since_bang=1 explosions=377 white=1364 red=1272 act_total=2.45% act_w=1.20% act_r=1.25% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=380 gen_since_bang=1 explosions=378 white=1322 red=1330 act_total=2.47% act_w=1.32% act_r=1.15% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=381 gen_since_bang=1 explosions=379 white=1366 red=1321 act_total=2.40% act_w=1.19% act_r=1.21% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=382 gen_since_bang=1 explosions=380 white=1314 red=1310 act_total=2.59% act_w=1.31% act_r=1.27% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=383 gen_since_bang=1 explosions=381 white=1363 red=1322 act_total=2.51% act_w=1.21% act_r=1.30% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:56] BIG_BANG | gen=384 gen_since_bang=1 explosions=382 white=1316 red=1300 act_total=2.63% act_w=1.32% act_r=1.31% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:57] BIG_BANG | gen=385 gen_since_bang=1 explosions=383 white=1366 red=1308 act_total=2.38% act_w=1.20% act_r=1.18% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:57] BIG_BANG | gen=386 gen_since_bang=1 explosions=384 white=1367 red=1272 act_total=2.51% act_w=1.30% act_r=1.21% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:57] BIG_BANG | gen=387 gen_since_bang=1 explosions=385 white=1380 red=1284 act_total=2.44% act_w=1.26% act_r=1.18% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:57] BIG_BANG | gen=388 gen_since_bang=1 explosions=386 white=1366 red=1288 act_total=2.49% act_w=1.32% act_r=1.16% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:57] BIG_BANG | gen=389 gen_since_bang=1 explosions=387 white=1412 red=1303 act_total=2.49% act_w=1.29% act_r=1.20% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:57] BIG_BANG | gen=390 gen_since_bang=1 explosions=388 white=1406 red=1328 act_total=2.63% act_w=1.45% act_r=1.18% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:57] BIG_BANG | gen=391 gen_since_bang=1 explosions=389 white=1407 red=1340 act_total=2.69% act_w=1.45% act_r=1.24% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:57] BIG_BANG | gen=392 gen_since_bang=1 explosions=390 white=1419 red=1316 act_total=2.60% act_w=1.34% act_r=1.26% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:57] BIG_BANG | gen=393 gen_since_bang=1 explosions=391 white=1426 red=1335 act_total=2.66% act_w=1.40% act_r=1.26% osc=0.00% | gen_to_bang=1 r=33 fill=0.45 trigger=15.0%
+[2026-01-24 13:07:57] END | gen=393 gen_since_bang=0 explosions=391 white=1426 red=1335 act_total=2.66% act_w=1.40% act_r=1.26% osc=0.00%
+[2026-01-24 13:12:45] START | gen=0 gen_since_bang=0 explosions=0 white=9600 red=9600 act_total=0.00% act_w=0.00% act_r=0.00% osc=0.00% | density=40% grid=200x300 scale=4
+[2026-01-24 13:12:49] BIG_BANG | gen=30 gen_since_bang=30 explosions=1 white=2861 red=2504 act_total=3.24% act_w=1.74% act_r=1.50% osc=6.69% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:12:51] BIG_BANG | gen=60 gen_since_bang=30 explosions=2 white=2105 red=1877 act_total=1.74% act_w=0.94% act_r=0.81% osc=3.50% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:12:53] BIG_BANG | gen=90 gen_since_bang=30 explosions=3 white=2101 red=1928 act_total=1.65% act_w=0.91% act_r=0.75% osc=3.35% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:12:56] BIG_BANG | gen=120 gen_since_bang=30 explosions=4 white=1810 red=1660 act_total=1.41% act_w=0.73% act_r=0.68% osc=3.03% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:12:58] BIG_BANG | gen=150 gen_since_bang=30 explosions=5 white=1506 red=1638 act_total=1.16% act_w=0.58% act_r=0.58% osc=2.63% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:00] BIG_BANG | gen=180 gen_since_bang=30 explosions=6 white=1456 red=1469 act_total=1.03% act_w=0.50% act_r=0.53% osc=2.35% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:02] BIG_BANG | gen=210 gen_since_bang=30 explosions=7 white=1268 red=1537 act_total=0.94% act_w=0.45% act_r=0.49% osc=2.40% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:04] BIG_BANG | gen=240 gen_since_bang=30 explosions=8 white=1148 red=1196 act_total=0.69% act_w=0.34% act_r=0.35% osc=1.91% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:06] BIG_BANG | gen=270 gen_since_bang=30 explosions=9 white=1109 red=1059 act_total=0.47% act_w=0.28% act_r=0.19% osc=1.73% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:08] BIG_BANG | gen=300 gen_since_bang=30 explosions=10 white=994 red=1050 act_total=0.52% act_w=0.27% act_r=0.25% osc=1.62% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:10] BIG_BANG | gen=330 gen_since_bang=30 explosions=11 white=1085 red=1095 act_total=0.59% act_w=0.34% act_r=0.25% osc=1.84% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:12] BIG_BANG | gen=360 gen_since_bang=30 explosions=12 white=1050 red=1104 act_total=0.54% act_w=0.27% act_r=0.27% osc=1.64% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:14] BIG_BANG | gen=390 gen_since_bang=30 explosions=13 white=972 red=1038 act_total=0.45% act_w=0.22% act_r=0.23% osc=1.55% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:16] BIG_BANG | gen=420 gen_since_bang=30 explosions=14 white=936 red=1010 act_total=0.37% act_w=0.17% act_r=0.20% osc=1.55% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:18] BIG_BANG | gen=450 gen_since_bang=30 explosions=15 white=1017 red=1047 act_total=0.48% act_w=0.24% act_r=0.24% osc=1.52% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:20] BIG_BANG | gen=480 gen_since_bang=30 explosions=16 white=957 red=987 act_total=0.40% act_w=0.20% act_r=0.20% osc=1.44% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:22] BIG_BANG | gen=510 gen_since_bang=30 explosions=17 white=873 red=1041 act_total=0.36% act_w=0.16% act_r=0.21% osc=1.55% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:24] BIG_BANG | gen=540 gen_since_bang=30 explosions=18 white=818 red=1108 act_total=0.42% act_w=0.16% act_r=0.27% osc=1.47% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:27] BIG_BANG | gen=570 gen_since_bang=30 explosions=19 white=812 red=1000 act_total=0.28% act_w=0.11% act_r=0.17% osc=1.35% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:30] BIG_BANG | gen=600 gen_since_bang=30 explosions=20 white=885 red=941 act_total=0.43% act_w=0.23% act_r=0.20% osc=1.40% | gen_to_bang=30 r=79 fill=0.45 trigger=15.0%
+[2026-01-24 13:13:30] END | gen=604 gen_since_bang=4 explosions=20 white=881 red=974 act_total=0.52% act_w=0.23% act_r=0.29% osc=1.24%
+[2026-01-24 13:18:09] START | gen=0 gen_since_bang=0 explosions=0 white=10400 red=10400 act_total=0.0000% act_w=0.0000% act_r=0.0000% osc=0.0000% | density=40% grid=200x300 scale=4
+[2026-01-24 13:20:15] START | gen=0 gen_since_bang=0 explosions=0 white=10400 red=10400 act_total=0.0000% act_w=0.0000% act_r=0.0000% osc=0.0000% | density=40% grid=200x300 scale=4 sep=40
+[2026-01-24 13:20:42] BIG_BANG | gen=371 gen_since_bang=371 explosions=1 white=5366 red=5395 act_total=0.7967% act_w=0.4483% act_r=0.3483% osc=2.3617% | gen_to_bang=371 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:21:03] BIG_BANG | gen=670 gen_since_bang=299 explosions=2 white=5408 red=5317 act_total=0.7500% act_w=0.3883% act_r=0.3617% osc=2.2550% | gen_to_bang=299 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:21:16] BIG_BANG | gen=874 gen_since_bang=204 explosions=3 white=5145 red=5143 act_total=0.7683% act_w=0.2917% act_r=0.4767% osc=2.4150% | gen_to_bang=204 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:21:32] BIG_BANG | gen=1105 gen_since_bang=231 explosions=4 white=5190 red=5242 act_total=0.7500% act_w=0.3333% act_r=0.4167% osc=2.4183% | gen_to_bang=231 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:21:43] BIG_BANG | gen=1259 gen_since_bang=154 explosions=5 white=5148 red=5253 act_total=0.7950% act_w=0.3500% act_r=0.4450% osc=2.3683% | gen_to_bang=154 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:21:56] BIG_BANG | gen=1441 gen_since_bang=182 explosions=6 white=5261 red=5240 act_total=0.7883% act_w=0.3533% act_r=0.4350% osc=2.3833% | gen_to_bang=182 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:22:03] BIG_BANG | gen=1553 gen_since_bang=112 explosions=7 white=5127 red=5203 act_total=0.7900% act_w=0.4400% act_r=0.3500% osc=2.4700% | gen_to_bang=112 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:22:17] BIG_BANG | gen=1754 gen_since_bang=201 explosions=8 white=5328 red=5174 act_total=0.7967% act_w=0.4283% act_r=0.3683% osc=2.1400% | gen_to_bang=201 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:22:28] BIG_BANG | gen=1918 gen_since_bang=164 explosions=9 white=5266 red=5102 act_total=0.7717% act_w=0.4000% act_r=0.3717% osc=2.1750% | gen_to_bang=164 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:22:45] BIG_BANG | gen=2162 gen_since_bang=244 explosions=10 white=5171 red=5295 act_total=0.7733% act_w=0.3167% act_r=0.4567% osc=2.3967% | gen_to_bang=244 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:22:54] BIG_BANG | gen=2289 gen_since_bang=127 explosions=11 white=5207 red=5146 act_total=0.7950% act_w=0.4933% act_r=0.3017% osc=2.4650% | gen_to_bang=127 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:23:08] BIG_BANG | gen=2497 gen_since_bang=208 explosions=12 white=5230 red=5314 act_total=0.7983% act_w=0.2950% act_r=0.5033% osc=2.3783% | gen_to_bang=208 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:23:20] BIG_BANG | gen=2645 gen_since_bang=148 explosions=13 white=5383 red=5140 act_total=0.7883% act_w=0.5067% act_r=0.2817% osc=2.3333% | gen_to_bang=148 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:23:34] BIG_BANG | gen=2842 gen_since_bang=197 explosions=14 white=5445 red=5176 act_total=0.7567% act_w=0.3533% act_r=0.4033% osc=2.3433% | gen_to_bang=197 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:23:46] BIG_BANG | gen=3018 gen_since_bang=176 explosions=15 white=5379 red=5067 act_total=0.7683% act_w=0.4533% act_r=0.3150% osc=2.1650% | gen_to_bang=176 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:23:55] BIG_BANG | gen=3149 gen_since_bang=131 explosions=16 white=5140 red=5060 act_total=0.7733% act_w=0.2817% act_r=0.4917% osc=2.2817% | gen_to_bang=131 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:24:04] BIG_BANG | gen=3288 gen_since_bang=139 explosions=17 white=5096 red=5141 act_total=0.7400% act_w=0.3367% act_r=0.4033% osc=2.1550% | gen_to_bang=139 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:24:11] BIG_BANG | gen=3391 gen_since_bang=103 explosions=18 white=5166 red=5171 act_total=0.7800% act_w=0.4783% act_r=0.3017% osc=2.1633% | gen_to_bang=103 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:24:21] BIG_BANG | gen=3533 gen_since_bang=142 explosions=19 white=5074 red=5182 act_total=0.7917% act_w=0.3650% act_r=0.4267% osc=2.3733% | gen_to_bang=142 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:24:30] BIG_BANG | gen=3660 gen_since_bang=127 explosions=20 white=5201 red=5113 act_total=0.7800% act_w=0.3983% act_r=0.3817% osc=2.4717% | gen_to_bang=127 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:24:48] BIG_BANG | gen=3918 gen_since_bang=258 explosions=21 white=5467 red=5214 act_total=0.7983% act_w=0.4533% act_r=0.3450% osc=2.4433% | gen_to_bang=258 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:25:00] BIG_BANG | gen=4100 gen_since_bang=182 explosions=22 white=5316 red=5246 act_total=0.7883% act_w=0.3150% act_r=0.4733% osc=2.2600% | gen_to_bang=182 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:25:12] BIG_BANG | gen=4231 gen_since_bang=131 explosions=23 white=5350 red=5197 act_total=0.7717% act_w=0.4317% act_r=0.3400% osc=2.2583% | gen_to_bang=131 r=79 cap=19577 k=8809 fill=0.45 trigger=0.8%
+[2026-01-24 13:33:41] START | gen=0 gen_since_bang=0 explosions=0 white=10400 red=10400 act_total=0.0000% act_w=0.0000% act_r=0.0000% osc=0.0000% | density=40% grid=200x300 scale=4 sep=40
+[2026-01-24 13:34:29] BIG_BANG | gen=678 gen_since_bang=678 explosions=1 white=5236 red=5324 act_total=0.3933% act_w=0.1750% act_r=0.2183% osc=1.6733% | {'scenario': 'center', 'balls': 1, 'r': 79, 'cap': 19577, 'k': 8809}
+[2026-01-24 13:34:53] BIG_BANG | gen=1365 gen_since_bang=687 explosions=2 white=8385 red=8370 act_total=0.3933% act_w=0.1550% act_r=0.2383% osc=1.6200% | {'scenario': 'multi', 'balls': 11, 'r_min': 40, 'r_max': 60, 'sum_k': 38906}
+[2026-01-24 13:35:27] BIG_BANG | gen=2403 gen_since_bang=1038 explosions=3 white=5181 red=5238 act_total=0.3617% act_w=0.1983% act_r=0.1633% osc=1.7150% | {'scenario': 'center', 'balls': 1, 'r': 79, 'cap': 19577, 'k': 8809}
+[2026-01-24 13:35:50] BIG_BANG | gen=3077 gen_since_bang=674 explosions=4 white=5190 red=5258 act_total=0.3983% act_w=0.2867% act_r=0.1117% osc=1.6700% | {'scenario': 'center', 'balls': 1, 'r': 79, 'cap': 19577, 'k': 8809}
+[2026-01-24 13:36:04] BIG_BANG | gen=3496 gen_since_bang=419 explosions=5 white=5002 red=5168 act_total=0.3967% act_w=0.1950% act_r=0.2017% osc=1.5817% | {'scenario': 'center', 'balls': 1, 'r': 79, 'cap': 19577, 'k': 8809}
+[2026-01-24 13:36:26] BIG_BANG | gen=4095 gen_since_bang=599 explosions=6 white=8166 red=8175 act_total=0.3833% act_w=0.1817% act_r=0.2017% osc=1.8150% | {'scenario': 'multi', 'balls': 8, 'r_min': 45, 'r_max': 59, 'sum_k': 30535}
+[2026-01-24 13:36:51] BIG_BANG | gen=4838 gen_since_bang=743 explosions=7 white=5040 red=5313 act_total=0.3817% act_w=0.0933% act_r=0.2883% osc=1.6450% | {'scenario': 'center', 'balls': 1, 'r': 79, 'cap': 19577, 'k': 8809}
+[2026-01-24 13:36:59] END | gen=5056 gen_since_bang=218 explosions=7 white=1571 red=1505 act_total=0.7217% act_w=0.3933% act_r=0.3283% osc=1.9650%
+[2026-01-24 13:37:27] START | gen=0 gen_since_bang=0 explosions=0 white=338750 red=338750 act_total=0.0000% act_w=0.0000% act_r=0.0000% osc=0.0000% | density=50% grid=1250x1250 scale=4 sep=167
+[2026-01-24 13:37:43] END | gen=155 gen_since_bang=155 explosions=0 white=55948 red=54149 act_total=1.6067% act_w=0.8166% act_r=0.7901% osc=3.6004%
+[2026-01-24 13:41:35] START | gen=0 gen_since_bang=0 explosions=0 white=97500 red=97500 act_total=0.0000% act_w=0.0000% act_r=0.0000% osc=0.0000% | density=40% grid=750x750 scale=4 sep=100 fullscreen=False
+[2026-01-24 13:43:00] BIG_BANG | gen=1110 gen_since_bang=1110 explosions=1 white=51729 red=50923 act_total=0.3977% act_w=0.2375% act_r=0.1602% osc=1.5787% | {'scenario': 'center', 'balls': 1, 'r': 250, 'cap': 196321, 'k': 88344}
+[2026-01-24 13:43:46] BIG_BANG | gen=1756 gen_since_bang=646 explosions=2 white=50631 red=50162 act_total=0.3947% act_w=0.2288% act_r=0.1659% osc=1.6018% | {'scenario': 'center', 'balls': 1, 'r': 250, 'cap': 196321, 'k': 88344}
+[2026-01-24 13:44:17] BIG_BANG | gen=2195 gen_since_bang=439 explosions=3 white=32928 red=32214 act_total=0.3838% act_w=0.1936% act_r=0.1902% osc=1.5895% | {'scenario': 'multi', 'balls': 8, 'r_min': 44, 'r_max': 81, 'sum_k': 46948}
+[2026-01-24 13:44:51] BIG_BANG | gen=2637 gen_since_bang=442 explosions=4 white=29275 red=28862 act_total=0.3980% act_w=0.2267% act_r=0.1714% osc=1.6217% | {'scenario': 'multi', 'balls': 8, 'r_min': 43, 'r_max': 83, 'sum_k': 39717}
+[2026-01-24 13:45:23] BIG_BANG | gen=3080 gen_since_bang=443 explosions=5 white=33378 red=32445 act_total=0.3938% act_w=0.2171% act_r=0.1767% osc=1.5579% | {'scenario': 'multi', 'balls': 8, 'r_min': 42, 'r_max': 90, 'sum_k': 47529}
+[2026-01-24 13:45:59] BIG_BANG | gen=3547 gen_since_bang=467 explosions=6 white=51128 red=51253 act_total=0.3989% act_w=0.2057% act_r=0.1932% osc=1.5684% | {'scenario': 'center', 'balls': 1, 'r': 250, 'cap': 196321, 'k': 88344}
+[2026-01-24 13:46:21] BIG_BANG | gen=4115 gen_since_bang=568 explosions=7 white=50018 red=51425 act_total=0.3929% act_w=0.1785% act_r=0.2144% osc=1.5669% | {'scenario': 'center', 'balls': 1, 'r': 250, 'cap': 196321, 'k': 88344}
+[2026-01-24 13:48:38] BIG_BANG | gen=4707 gen_since_bang=592 explosions=8 white=49736 red=51111 act_total=0.3991% act_w=0.1771% act_r=0.2220% osc=1.5678% | {'scenario': 'center', 'balls': 1, 'r': 250, 'cap': 196321, 'k': 88344}
+[2026-01-24 13:48:55] BIG_BANG | gen=5267 gen_since_bang=560 explosions=9 white=31307 red=33175 act_total=0.3964% act_w=0.1872% act_r=0.2092% osc=1.5499% | {'scenario': 'multi', 'balls': 8, 'r_min': 43, 'r_max': 89, 'sum_k': 46504}
+[2026-01-24 13:49:06] BIG_BANG | gen=5607 gen_since_bang=340 explosions=10 white=50965 red=51038 act_total=0.3998% act_w=0.2236% act_r=0.1762% osc=1.5988% | {'scenario': 'center', 'balls': 1, 'r': 250, 'cap': 196321, 'k': 88344}
+[2026-01-24 13:49:27] BIG_BANG | gen=6227 gen_since_bang=620 explosions=11 white=49972 red=51306 act_total=0.3726% act_w=0.1888% act_r=0.1838% osc=1.5831% | {'scenario': 'center', 'balls': 1, 'r': 250, 'cap': 196321, 'k': 88344}
+[2026-01-24 13:49:44] BIG_BANG | gen=6761 gen_since_bang=534 explosions=12 white=35855 red=34461 act_total=0.3829% act_w=0.1852% act_r=0.1977% osc=1.5500% | {'scenario': 'multi', 'balls': 9, 'r_min': 44, 'r_max': 83, 'sum_k': 53012}
+[2026-01-24 13:50:09] BIG_BANG | gen=7534 gen_since_bang=773 explosions=13 white=51774 red=50714 act_total=0.3984% act_w=0.2000% act_r=0.1984% osc=1.6267% | {'scenario': 'center', 'balls': 1, 'r': 250, 'cap': 196321, 'k': 88344}
+[2026-01-24 13:50:28] BIG_BANG | gen=8159 gen_since_bang=625 explosions=14 white=37672 red=36365 act_total=0.3954% act_w=0.2396% act_r=0.1557% osc=1.5982% | {'scenario': 'multi', 'balls': 9, 'r_min': 46, 'r_max': 89, 'sum_k': 57366}
+[2026-01-24 13:50:50] BIG_BANG | gen=8845 gen_since_bang=686 explosions=15 white=42207 red=40682 act_total=0.3993% act_w=0.2215% act_r=0.1778% osc=1.6073% | {'scenario': 'multi', 'balls': 10, 'r_min': 49, 'r_max': 89, 'sum_k': 67402}
+[2026-01-24 13:51:08] BIG_BANG | gen=9456 gen_since_bang=611 explosions=16 white=50938 red=50511 act_total=0.3973% act_w=0.1881% act_r=0.2092% osc=1.5630% | {'scenario': 'center', 'balls': 1, 'r': 250, 'cap': 196321, 'k': 88344}
+[2026-01-24 13:51:27] BIG_BANG | gen=10086 gen_since_bang=630 explosions=17 white=41166 red=41374 act_total=0.3993% act_w=0.1838% act_r=0.2155% osc=1.6000% | {'scenario': 'multi', 'balls': 12, 'r_min': 40, 'r_max': 86, 'sum_k': 67614}
+[2026-01-24 13:51:46] BIG_BANG | gen=10685 gen_since_bang=599 explosions=18 white=52092 red=49636 act_total=0.3998% act_w=0.2452% act_r=0.1547% osc=1.5659% | {'scenario': 'center', 'balls': 1, 'r': 250, 'cap': 196321, 'k': 88344}
+[2026-01-24 13:52:08] BIG_BANG | gen=11344 gen_since_bang=659 explosions=19 white=33478 red=32452 act_total=0.3973% act_w=0.2416% act_r=0.1557% osc=1.5298% | {'scenario': 'multi', 'balls': 7, 'r_min': 46, 'r_max': 86, 'sum_k': 49002}
+[2026-01-24 13:52:23] BIG_BANG | gen=11851 gen_since_bang=507 explosions=20 white=40978 red=39137 act_total=0.3922% act_w=0.2364% act_r=0.1557% osc=1.5408% | {'scenario': 'multi', 'balls': 10, 'r_min': 40, 'r_max': 89, 'sum_k': 64309}
+[2026-01-24 13:52:30] END | gen=12028 gen_since_bang=177 explosions=20 white=15051 red=12769 act_total=0.7460% act_w=0.4194% act_r=0.3266% osc=2.1524%
