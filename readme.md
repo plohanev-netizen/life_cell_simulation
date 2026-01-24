@@ -108,7 +108,7 @@ The project evolved **step by step**, each major development stage is preserved 
   Clear the field
 - `F` — полноэкранный режим  
   Toggle fullscreen
-- `← / →` — скорость симуляции  
+- `UP / DOWN` — скорость симуляции  
   Decrease / increase simulation speed
 - `H` — справка (overlay)  
   Toggle help overlay
