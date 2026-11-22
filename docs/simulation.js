@@ -134,7 +134,7 @@ class Simulation {
     }
     this.lastMutation = this.generation;
     this.history = [];
-    this.events.push({ type: viral ? 'Вирусная бомба' : 'Ручной взрыв', x, y, radius: bombRadius });
+    this.events.push({ type: viral ? 'virusBomb' : 'manualBlast', x, y, radius: bombRadius });
   }
 
   mutate() {
@@ -143,7 +143,7 @@ class Simulation {
       const y = Math.floor(this.height / 2);
       const radius = Math.max(1, Math.floor(Math.min(this.width, this.height) / 3));
       this.disk(x, y, radius, .45);
-      this.events.push({ type: 'Большой взрыв', x, y, radius });
+      this.events.push({ type: 'bigBang', x, y, radius });
     } else {
       const count = 6 + Math.floor(this.random() * 7);
       const radius = Math.max(1, Math.floor(Math.min(this.width, this.height) / 12));
@@ -152,7 +152,7 @@ class Simulation {
         const x = Math.floor(this.random() * this.width);
         const y = Math.floor(this.random() * this.height);
         if (centers.some(c => Math.hypot(c.x - x, c.y - y) < radius * 1.8)) continue;
-        const event = { type: 'Серия взрывов', x, y, radius };
+        const event = { type: 'blastSeries', x, y, radius };
         centers.push(event);
         this.disk(x, y, radius, .45);
         this.events.push(event);
@@ -196,7 +196,7 @@ class Simulation {
       if (allies > group.length + 2 || enemies <= 20) continue;
       if (this.random() >= Math.min(.95, .25 + .015 * (enemies - 20))) continue;
       this.disk(x, y, 9, .78, state, grid);
-      this.events.push({ type: 'Атака рейдеров', x, y, radius: 9 });
+      this.events.push({ type: 'raiderStrike', x, y, radius: 9 });
     }
   }
 
@@ -230,7 +230,7 @@ class Simulation {
     for (let group = 0; group < 5; group++) {
       let x = Math.floor(this.random() * this.width);
       let y = Math.floor(this.random() * this.height);
-      this.events.push({ type: 'Вирусная волна', x, y, radius: 5 });
+      this.events.push({ type: 'virusWave', x, y, radius: 5 });
       for (let i = 0; i < 80; i++) {
         next[this.index(x, y)] = 3;
         x = Math.max(0, Math.min(this.width - 1, x + Math.floor(this.random() * 3) - 1));
@@ -265,7 +265,7 @@ class Simulation {
       const y = Math.floor(i / this.width);
       const radius = Math.round(bombRadius * 1.5);
       this.disk(x, y, radius, .45);
-      this.events.push({ type: 'Взрыв осциллятора', x, y, radius });
+      this.events.push({ type: 'oscillatorBlast', x, y, radius });
       this.lastMutation = this.generation;
     }
   }

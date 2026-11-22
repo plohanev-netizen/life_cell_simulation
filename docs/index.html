@@ -3,63 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Life Wars — клеточная симуляция</title>
+<title data-text="pageTitle">Cell Wars — клеточная симуляция</title>
 <link rel="stylesheet" href="style.css">
 <script defer src="simulation.js"></script>
+<script defer src="translations.js"></script>
 <script defer src="app.js"></script>
 </head>
 <body>
 <main>
-<header><h1>Life Wars</h1><p>Две фракции делят поле. Когда жизнь замирает, мутации заселяют часть поля заново.</p></header>
+<header><h1>Cell Wars</h1><p data-text="intro">Две фракции делят поле. Когда жизнь замирает, мутации заселяют часть поля заново.</p><div class="header-actions"><select class="language" aria-label="Язык" data-label="language"><option value="ru" lang="ru">Русский</option><option value="en" lang="en">English</option></select><button id="onboarding-open" type="button" aria-haspopup="dialog" data-text="help">Как играть</button></div></header>
 <div class="workspace">
-<section class="arena" aria-label="Поле симуляции">
+<section class="arena" aria-label="Поле симуляции" data-label="arena">
   <dl class="counts">
-    <div><dt>Поколение</dt><dd id="generation">0</dd></div>
-    <div class="white"><dt>Белые</dt><dd id="white">0</dd></div>
-    <div class="red"><dt>Красные</dt><dd id="red">0</dd></div>
-    <div class="virus"><dt>Вирусы</dt><dd id="virus">0</dd></div>
-    <div><dt>Активность</dt><dd id="activity">0%</dd></div>
+    <div><dt data-text="generation">Поколение</dt><dd id="generation">0</dd></div>
+    <div class="white"><dt data-text="white">Белые</dt><dd id="white">0</dd></div>
+    <div class="red"><dt data-text="red">Красные</dt><dd id="red">0</dd></div>
+    <div class="virus"><dt data-text="viruses">Вирусы</dt><dd id="virus">0</dd></div>
+    <div><dt data-text="activity">Активность</dt><dd id="activity">0%</dd></div>
   </dl>
-  <p id="tap-hint" class="hint" hidden>Коснитесь поля, чтобы сбросить бомбу.</p>
-  <div class="field"><canvas id="grid" width="180" height="120" aria-label="Клеточное поле"></canvas></div>
+  <p id="tap-hint" class="hint" hidden data-text="tap">Коснитесь поля, чтобы сбросить бомбу.</p>
+  <div class="field"><canvas id="grid" width="180" height="120" aria-label="Клеточное поле" data-label="field"></canvas></div>
   <p id="event" role="status">Поле заселено</p>
 </section>
 <aside id="desktop-controls">
-  <h2>Симуляция</h2>
+  <h2 data-text="simulation">Симуляция</h2>
   <div class="actions">
     <button id="run" type="button">Пуск</button>
-    <button id="step" type="button">Шаг</button>
-    <button id="reset" type="button">Заново</button>
-    <button id="clear" type="button">Очистить</button>
+    <button id="step" type="button" data-text="step">Шаг</button>
+    <button id="reset" type="button" data-text="reset">Заново</button>
+    <button id="clear" type="button" data-text="clear">Очистить</button>
   </div>
-  <label class="speed">Скорость <output id="speed-value" for="speed">15 поколений/с</output>
+  <label class="speed"><span data-text="speedLabel">Скорость</span> <output id="speed-value" for="speed">15 поколений/с</output>
     <input id="speed" type="range" min="1" max="60" value="15">
   </label>
   <fieldset>
-    <legend>События</legend>
-    <label><input id="mutations" type="checkbox" checked> Мутации при затишье</label>
-    <div class="setting"><label><input id="raiders" type="checkbox" checked> Рейдеры</label>
-      <details class="help"><summary aria-label="Что такое рейдеры?">?</summary>
-        <p>Малые изолированные группы белых или красных клеток. При контакте с многочисленным противником они могут взорваться и заселить часть поля своим цветом.</p>
+    <legend data-text="events">События</legend>
+    <label><input id="mutations" type="checkbox" checked> <span data-text="mutations">Мутации при затишье</span></label>
+    <div class="setting"><label><input id="raiders" type="checkbox" checked> <span data-text="raiders">Рейдеры</span></label>
+      <details class="help"><summary aria-label="Что такое рейдеры?" data-label="raidersLabel">?</summary>
+        <p data-text="raidersHelp">Малые изолированные группы белых или красных клеток. При контакте с многочисленным противником они могут взорваться и заселить часть поля своим цветом.</p>
       </details>
     </div>
-    <div class="setting"><label><input id="biohazard" type="checkbox" checked> Вирусы</label>
-      <details class="help"><summary aria-label="Что такое вирусы?">?</summary>
-        <p>Зелёные клетки появляются волнами, заражают соседние живые клетки обеих фракций и исчезают после затишья или окончания срока жизни. Вирусная бомба включает этот режим.</p>
+    <div class="setting"><label><input id="biohazard" type="checkbox" checked> <span data-text="viruses">Вирусы</span></label>
+      <details class="help"><summary aria-label="Что такое вирусы?" data-label="virusLabel">?</summary>
+        <p data-text="virusHelp">Зелёные клетки появляются волнами, заражают соседние живые клетки обеих фракций и исчезают после затишья или окончания срока жизни. Вирусная бомба включает этот режим.</p>
       </details>
     </div>
   </fieldset>
   <fieldset>
-    <legend>Инструмент поля</legend>
-    <label class="white"><input name="brush" type="radio" value="1" checked> Белые клетки</label>
-    <label class="red"><input name="brush" type="radio" value="2"> Красные клетки</label>
-    <label><input name="brush" type="radio" value="blast"> Бомба</label>
-    <label class="virus"><input name="brush" type="radio" value="virus-blast"> Вирусная бомба</label>
-    <label><input name="brush" type="radio" value="0"> Ластик</label>
+    <legend data-text="brush">Инструмент поля</legend>
+    <label class="white"><input name="brush" type="radio" value="1" checked> <span data-text="whiteBrush">Белые клетки</span></label>
+    <label class="red"><input name="brush" type="radio" value="2"> <span data-text="redBrush">Красные клетки</span></label>
+    <label><input name="brush" type="radio" value="blast"> <span data-text="bomb">Бомба</span></label>
+    <label class="virus"><input name="brush" type="radio" value="virus-blast"> <span data-text="virusBomb">Вирусная бомба</span></label>
+    <label><input name="brush" type="radio" value="0"> <span data-text="eraser">Ластик</span></label>
   </fieldset>
-  <p class="hint">Выберите инструмент и нажмите на поле. Правая кнопка добавляет красных, Shift стирает клетки. Пробел ставит симуляцию на паузу.</p>
+  <p class="hint" data-text="desktopHint">Выберите инструмент и нажмите на поле. Правая кнопка добавляет красных, Shift стирает клетки. Пробел ставит симуляцию на паузу.</p>
 </aside>
 </div>
 </main>
+<dialog id="onboarding" aria-labelledby="onboarding-title" aria-describedby="onboarding-step">
+  <div class="onboarding-top"><p id="onboarding-step" class="onboarding-step">Шаг 1 из 3</p><select class="language" aria-label="Язык" data-label="language"><option value="ru" lang="ru">Русский</option><option value="en" lang="en">English</option></select></div>
+  <h2 id="onboarding-title" tabindex="-1" autofocus>Что такое Cell Wars</h2>
+  <div class="onboarding-copy">
+    <section data-title="guideTitle">
+      <p data-text="guideIntro">Cell Wars — это симуляция жизни клеток, основанная на алгоритме клеточного автомата Джона Конвея. Красные и белые клетки борются за поле, а взрывы и вирусы меняют ход симуляции.</p>
+    </section>
+    <section data-title="rulesTitle" hidden>
+      <p data-text="guideRules">Клетки рождаются и гибнут в зависимости от соседей. Рейдеры — небольшие группы, которые могут взорваться рядом с противником и заселить участок своим цветом. Зелёные вирусы заражают соседей обеих фракций. Заражённые клетки со временем погибают.</p>
+    </section>
+    <section data-title="controlsTitle" hidden>
+      <p><strong data-text="phone">На телефоне.</strong> <span data-text="guidePhone">Коснитесь поля, чтобы сбросить бомбу. В зоне взрыва появятся новые белые и красные клетки.</span></p>
+      <p><strong data-text="computer">На компьютере.</strong> <span data-text="guideDesktop">Можно добавлять и стирать клетки, сбрасывать обычные и вирусные бомбы. Нажмите «Пуск», чтобы запустить симуляцию, или «Шаг», чтобы посмотреть одно поколение.</span></p>
+    </section>
+  </div>
+  <div class="onboarding-actions">
+    <button id="onboarding-skip" type="button" data-text="skip">Пропустить</button>
+    <button id="onboarding-back" type="button" hidden data-text="back">Назад</button>
+    <button id="onboarding-next" type="button">Далее</button>
+  </div>
+</dialog>
 </body>
 </html>

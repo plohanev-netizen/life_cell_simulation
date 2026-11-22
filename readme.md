@@ -1,4 +1,4 @@
-# Life Wars — Cellular Simulation
+# Cell Wars — Cellular Simulation
 
 Интерактивная симуляция клеточного автомата на Python (`pygame + numpy`) с постепенным усложнением логики: фракции, антистагнационные взрывы, рейдеры и вирусы.
 
@@ -15,6 +15,8 @@ The project evolved **step by step**, each major development stage is preserved 
 Откройте [docs/index.html](docs/index.html) в браузере. Для запуска по HTTP
 выполните в корне репозитория `python3 -m http.server 8000 --bind 127.0.0.1 --directory docs`
 и откройте `http://127.0.0.1:8000/`. Дополнительные библиотеки не нужны.
+
+В интерфейсе можно выбрать русский или английский язык.
 
 В браузере доступны две фракции, стагнация и автоматическое перезаселение,
 рейдеры, вирусные волны, ручные бомбы и счётчики. Для ручного взрыва
@@ -185,5 +187,6 @@ The project evolved **step by step**, each major development stage is preserved 
 
 ---
 
-**Life Wars** — эксперимент с эмерджентным поведением, конфликтами и устойчивостью сложных систем.  
-**Life Wars** is an experiment in emergent behavior, conflict, and resilience of complex systems.
+**Cell Wars** — эксперимент с эмерджентным поведением, конфликтами и устойчивостью сложных систем.
+
+**Cell Wars** is an experiment in emergent behavior, conflict, and resilience of complex systems.
