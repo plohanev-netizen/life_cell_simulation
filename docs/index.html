@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life Wars — клеточная симуляция</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="simulation.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<main>
+<header><h1>Life Wars</h1><p>Две фракции делят поле. Когда жизнь замирает, мутации заселяют часть поля заново.</p></header>
+<div class="workspace">
+<section class="arena" aria-label="Поле симуляции">
+  <dl class="counts">
+    <div><dt>Поколение</dt><dd id="generation">0</dd></div>
+    <div class="white"><dt>Белые</dt><dd id="white">0</dd></div>
+    <div class="red"><dt>Красные</dt><dd id="red">0</dd></div>
+    <div class="virus"><dt>Вирусы</dt><dd id="virus">0</dd></div>
+    <div><dt>Активность</dt><dd id="activity">0%</dd></div>
+  </dl>
+  <p id="tap-hint" class="hint" hidden>Коснитесь поля, чтобы сбросить бомбу.</p>
+  <div class="field"><canvas id="grid" width="180" height="120" aria-label="Клеточное поле"></canvas></div>
+  <p id="event" role="status">Поле заселено</p>
+</section>
+<aside id="desktop-controls">
+  <h2>Симуляция</h2>
+  <div class="actions">
+    <button id="run" type="button">Пуск</button>
+    <button id="step" type="button">Шаг</button>
+    <button id="reset" type="button">Заново</button>
+    <button id="clear" type="button">Очистить</button>
+  </div>
+  <label class="speed">Скорость <output id="speed-value" for="speed">15 поколений/с</output>
+    <input id="speed" type="range" min="1" max="60" value="15">
+  </label>
+  <fieldset>
+    <legend>События</legend>
+    <label><input id="mutations" type="checkbox" checked> Мутации при затишье</label>
+    <div class="setting"><label><input id="raiders" type="checkbox" checked> Рейдеры</label>
+      <details class="help"><summary aria-label="Что такое рейдеры?">?</summary>
+        <p>Малые изолированные группы белых или красных клеток. При контакте с многочисленным противником они могут взорваться и заселить часть поля своим цветом.</p>
+      </details>
+    </div>
+    <div class="setting"><label><input id="biohazard" type="checkbox" checked> Вирусы</label>
+      <details class="help"><summary aria-label="Что такое вирусы?">?</summary>
+        <p>Зелёные клетки появляются волнами, заражают соседние живые клетки обеих фракций и исчезают после затишья или окончания срока жизни. Вирусная бомба включает этот режим.</p>
+      </details>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Инструмент поля</legend>
+    <label class="white"><input name="brush" type="radio" value="1" checked> Белые клетки</label>
+    <label class="red"><input name="brush" type="radio" value="2"> Красные клетки</label>
+    <label><input name="brush" type="radio" value="blast"> Бомба</label>
+    <label class="virus"><input name="brush" type="radio" value="virus-blast"> Вирусная бомба</label>
+    <label><input name="brush" type="radio" value="0"> Ластик</label>
+  </fieldset>
+  <p class="hint">Выберите инструмент и нажмите на поле. Правая кнопка добавляет красных, Shift стирает клетки. Пробел ставит симуляцию на паузу.</p>
+</aside>
+</div>
+</main>
+</body>
+</html>
