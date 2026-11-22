@@ -4,11 +4,18 @@ const simulation = new Simulation();
 const select = id => document.getElementById(id);
 const canvas = select('grid');
 const context = canvas.getContext('2d');
-const image = context.createImageData(canvas.width, canvas.height);
+const field = canvas.parentElement;
+const desktopWidth = canvas.width;
+const desktopHeight = canvas.height;
+const mobileCellSize = 3;
+let image;
 const palette = [[10, 20, 23], [225, 241, 250], [255, 119, 106], [182, 239, 114]];
 const run = select('run');
 const step = select('step');
 const speed = select('speed');
+const touchLayout = window.matchMedia('(pointer: coarse)');
+const desktopControls = select('desktop-controls');
+const tapHint = select('tap-hint');
 let timer = null;
 
 function render() {
@@ -48,6 +55,44 @@ function start() {
   timer = setInterval(advance, 1000 / Number(speed.value));
 }
 
+function updateRunControls() {
+  step.disabled = timer !== null;
+  run.textContent = timer === null ? 'Пуск' : 'Пауза';
+}
+
+function fitField(seed = false) {
+  let width = desktopWidth;
+  let height = desktopHeight;
+  if (touchLayout.matches) {
+    const bounds = field.getBoundingClientRect();
+    width = Math.max(1, Math.floor(bounds.width / mobileCellSize));
+    height = Math.max(1, Math.floor(bounds.height / mobileCellSize));
+    canvas.style.width = `${width * mobileCellSize}px`;
+    canvas.style.height = `${height * mobileCellSize}px`;
+  } else {
+    canvas.style.width = '';
+    canvas.style.height = '';
+  }
+
+  if (image && canvas.width === width && canvas.height === height) return;
+  simulation.resize(width, height);
+  if (seed) simulation.reset();
+  canvas.width = width;
+  canvas.height = height;
+  image = context.createImageData(width, height);
+  render();
+}
+
+function applyLayout(seed = false) {
+  const mobile = touchLayout.matches;
+  document.body.classList.toggle('touch-layout', mobile);
+  desktopControls.hidden = mobile;
+  tapHint.hidden = !mobile;
+  fitField(seed);
+  if (mobile && timer === null) start();
+  updateRunControls();
+}
+
 function toggleRun() {
   if (timer === null) {
     start();
@@ -55,8 +100,7 @@ function toggleRun() {
     clearInterval(timer);
     timer = null;
   }
-  step.disabled = timer !== null;
-  run.textContent = timer === null ? 'Пуск' : 'Пауза';
+  updateRunControls();
 }
 
 function reset(seed) {
@@ -70,11 +114,15 @@ function edit(event, secondary = false) {
   const x = Math.floor((event.clientX - rect.left) * canvas.width / rect.width);
   const y = Math.floor((event.clientY - rect.top) * canvas.height / rect.height);
   if (!simulation.inside(x, y)) return;
-  const tool = event.shiftKey ? '0' : secondary ? '2' : document.querySelector('[name=brush]:checked').value;
+  let tool = 'blast';
+  if (!touchLayout.matches) {
+    tool = event.shiftKey ? '0' : secondary ? '2' : document.querySelector('[name=brush]:checked').value;
+  }
   simulation.events = [];
-  if (tool === 'blast') {
-    simulation.blast(x, y);
-    select('event').textContent = `Ручной взрыв · поколение ${simulation.generation}`;
+  if (tool === 'blast' || tool === 'virus-blast') {
+    simulation.blast(x, y, tool === 'virus-blast');
+    select('biohazard').checked = simulation.virus;
+    select('event').textContent = `${simulation.events.at(-1).type} · поколение ${simulation.generation}`;
   } else {
     simulation.paint(x, y, Number(tool));
   }
@@ -99,12 +147,14 @@ select('biohazard').addEventListener('change', event => {
 canvas.addEventListener('click', edit);
 canvas.addEventListener('contextmenu', event => {
   event.preventDefault();
-  edit(event, true);
+  if (!touchLayout.matches) edit(event, true);
 });
 document.addEventListener('keydown', event => {
-  if (event.code !== 'Space' || event.repeat || event.target.closest('button, input')) return;
+  if (touchLayout.matches || event.code !== 'Space' || event.repeat || event.target.closest('button, input')) return;
   event.preventDefault();
   toggleRun();
 });
 
-render();
+touchLayout.addEventListener('change', () => applyLayout());
+applyLayout(true);
+new ResizeObserver(() => fitField()).observe(field);

@@ -4,6 +4,10 @@ const adjacent = [-1, 0, 1].flatMap(dy =>
   [-1, 0, 1].filter(dx => dx || dy).map(dx => [dx, dy])
 );
 
+const bombRadius = 15;
+const oscillatorPeriods = [2, 3, 4];
+const oscillatorCycles = 100;
+
 class Simulation {
   constructor(width = 180, height = 120, random = Math.random) {
     this.width = width;
@@ -18,6 +22,8 @@ class Simulation {
   reset(seed = true) {
     this.grid = new Uint8Array(this.width * this.height);
     this.history = [];
+    this.oscillatorHistory = [];
+    this.oscillatorStreaks = oscillatorPeriods.map(() => new Uint16Array(this.grid.length));
     this.generation = 0;
     this.lastMutation = 0;
     this.virusSince = null;
@@ -34,6 +40,26 @@ class Simulation {
     }
   }
 
+  resize(width, height) {
+    if (width === this.width && height === this.height) return;
+    const columns = Math.min(width, this.width);
+    const rows = Math.min(height, this.height);
+    const resizeGrid = grid => {
+      const result = new grid.constructor(width * height);
+      for (let y = 0; y < rows; y++) {
+        const start = y * this.width;
+        result.set(grid.subarray(start, start + columns), y * width);
+      }
+      return result;
+    };
+    this.grid = resizeGrid(this.grid);
+    this.history = this.history.map(resizeGrid);
+    this.oscillatorHistory = this.oscillatorHistory.map(resizeGrid);
+    this.oscillatorStreaks = this.oscillatorStreaks.map(resizeGrid);
+    this.width = width;
+    this.height = height;
+  }
+
   index(x, y) {
     return y * this.width + x;
   }
@@ -48,10 +74,18 @@ class Simulation {
     }
   }
 
+  clearOscillatorStreak(index) {
+    for (const streak of this.oscillatorStreaks) streak[index] = 0;
+  }
+
   paint(x, y, state) {
     if (!state) {
       for (const [dx, dy] of [[0, 0], ...adjacent]) {
-        if (this.inside(x + dx, y + dy)) this.grid[this.index(x + dx, y + dy)] = 0;
+        if (!this.inside(x + dx, y + dy)) continue;
+        const index = this.index(x + dx, y + dy);
+        if (!this.grid[index]) continue;
+        this.grid[index] = 0;
+        this.clearOscillatorStreak(index);
       }
     } else {
       const group = [this.index(x, y)];
@@ -63,7 +97,11 @@ class Simulation {
           if (!group.includes(n) && !this.grid[n]) group.push(n);
         }
       }
-      for (const n of group) if (!this.grid[n]) this.grid[n] = state;
+      for (const n of group) {
+        if (this.grid[n]) continue;
+        this.grid[n] = state;
+        this.clearOscillatorStreak(n);
+      }
     }
     this.history = [];
   }
@@ -75,6 +113,7 @@ class Simulation {
         if (dx * dx + dy * dy > radius * radius || !this.inside(x + dx, y + dy)) continue;
         const i = this.index(x + dx, y + dy);
         grid[i] = 0;
+        this.clearOscillatorStreak(i);
         cells.push(i);
       }
     }
@@ -86,11 +125,16 @@ class Simulation {
     }
   }
 
-  blast(x, y) {
-    this.disk(x, y, 15, .45);
+  blast(x, y, viral = false) {
+    if (viral && !this.virus) this.setVirus(true);
+    this.disk(x, y, bombRadius, .45, viral ? 3 : 0);
+    if (viral) {
+      this.virusSince ??= this.generation;
+      this.virusQuiet = 0;
+    }
     this.lastMutation = this.generation;
     this.history = [];
-    this.events.push({ type: 'Ручной взрыв', x, y, radius: 15 });
+    this.events.push({ type: viral ? 'Вирусная бомба' : 'Ручной взрыв', x, y, radius: bombRadius });
   }
 
   mutate() {
@@ -159,7 +203,11 @@ class Simulation {
   setVirus(enabled) {
     this.virus = enabled;
     if (enabled) return;
-    this.grid.forEach((cell, i) => { if (cell === 3) this.grid[i] = 0; });
+    this.grid.forEach((cell, i) => {
+      if (cell !== 3) return;
+      this.grid[i] = 0;
+      this.clearOscillatorStreak(i);
+    });
     this.virusSince = null;
     this.virusQuiet = 0;
     this.history = [];
@@ -191,6 +239,35 @@ class Simulation {
     }
     this.virusSince = this.generation;
     this.virusQuiet = 0;
+  }
+
+  explodeOscillators(old, next) {
+    const triggered = [];
+    for (const [index, period] of oscillatorPeriods.entries()) {
+      const streak = this.oscillatorStreaks[index];
+      const previous = this.oscillatorHistory[period - 2];
+      if (!previous) {
+        streak.fill(0);
+        continue;
+      }
+      const intermediate = this.oscillatorHistory.slice(0, period - 2);
+      const threshold = (oscillatorCycles - 1) * period + 1;
+      for (let i = 0; i < next.length; i++) {
+        const cell = next[i];
+        const varies = old[i] !== cell || intermediate.some(grid => grid[i] !== cell);
+        streak[i] = previous[i] === cell && varies ? streak[i] + 1 : 0;
+        if (streak[i] === threshold) triggered.push([i, streak]);
+      }
+    }
+    for (const [i, streak] of triggered) {
+      if (!streak[i]) continue;
+      const x = i % this.width;
+      const y = Math.floor(i / this.width);
+      const radius = Math.round(bombRadius * 1.5);
+      this.disk(x, y, radius, .45);
+      this.events.push({ type: 'Взрыв осциллятора', x, y, radius });
+      this.lastMutation = this.generation;
+    }
   }
 
   step() {
@@ -236,9 +313,12 @@ class Simulation {
       if (cell !== old[i] && !this.history.some(previous => previous[i] === cell)) active++;
     });
     this.activity = occupied ? 100 * active / occupied : 0;
+    this.grid = next;
+    this.explodeOscillators(old, next);
+    this.oscillatorHistory.unshift(old);
+    if (this.oscillatorHistory.length > 3) this.oscillatorHistory.pop();
     this.history.unshift(old);
     if (this.history.length > 3) this.history.pop();
-    this.grid = next;
     if (this.mutations && this.activity < 1 && this.generation - this.lastMutation >= 30) this.mutate();
   }
 
