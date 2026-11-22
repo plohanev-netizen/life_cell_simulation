@@ -1,0 +1,39 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+  color: #dfebef;
+  background: #101719;
+  --panel: #182326;
+  --line: #36474c;
+  --accent: #b6eca5;
+  --muted: #a6b8bd;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1340px; margin: auto; padding: clamp(14px, 4vw, 48px); }
+h1 { margin: 0; color: var(--accent); font-size: clamp(2.6rem, 6vw, 4.5rem); letter-spacing: -.055em; line-height: 1; }
+header p { margin: 12px 0 24px; color: var(--muted); }
+.workspace { display: grid; grid-template-columns: minmax(0,1fr) minmax(240px,280px); gap: 16px; align-items: start; }
+.arena, aside { min-width: 0; padding: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+.counts { display: grid; grid-template-columns: repeat(auto-fit,minmax(95px,1fr)); gap: 6px; margin: 0 0 12px; }
+.counts div { background: #111b1e; padding: 8px; border-radius: 6px; }
+dt { font-size: .875rem; color: var(--muted); }
+dd { margin: 2px 0 0; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.field { overflow: hidden; background: #0a1417; border-radius: 7px; }
+canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; cursor: crosshair; }
+#event { min-height: 1.3em; margin: 10px 0 0; color: var(--muted); font-size: .875rem; }
+h2 { margin: 0 0 12px; font-size: 1.1rem; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+button { padding: 8px; background: #233436; color: inherit; border: 1px solid var(--line); border-radius: 6px; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: default; }
+#run { background: var(--accent); color: #16221a; font-weight: 700; }
+input { accent-color: var(--accent); }
+.speed { display: grid; gap: 5px; margin: 16px 0; }
+output, .hint { color: var(--muted); font-size: .875rem; }
+fieldset { border: 1px solid var(--line); border-radius: 8px; padding: 8px; margin: 0 0 12px; }
+fieldset label { display: flex; align-items: center; gap: 6px; padding: 4px 0; }
+.white { color: #e1f1fa; }
+.red { color: #ff877b; }
+.virus { color: #b6ef72; }
+.hint { margin: 0; line-height: 1.4; }
+@media (max-width: 720px) { .workspace { grid-template-columns: minmax(0,1fr); } }
